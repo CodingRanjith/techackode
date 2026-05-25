@@ -1,3 +1,12 @@
-﻿export default function Placeholder() {
-  return null
+﻿import { AboutPageShell, ContentBlock } from '@/components/about'
+import { clientsPage } from '@/data/about'
+
+export default function ClientsPage() {
+  const { hero, content } = clientsPage
+
+  return (
+    <AboutPageShell heading={hero.heading} subheading={hero.subheading}>
+      <ContentBlock content={content} />
+    </AboutPageShell>
+  )
 }
