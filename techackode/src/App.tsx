@@ -1,7 +1,7 @@
-import { StackShowcase } from '@/components/sections/stack-showcase'
+import HomePage from '@/pages/Home'
 
 function App() {
-  return <StackShowcase />
+  return <HomePage />
 }
 
 export default App
