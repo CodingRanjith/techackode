@@ -1,8 +1,8 @@
 export const navLinks = [
   { label: 'Home', href: '#hero' },
   { label: 'About Us', href: '/about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Divisions', href: '#divisions' },
+  { label: 'Services', href: '/services' },
+  { label: 'Divisions', href: '/divisions' },
   { label: 'Products', href: '#products' },
   { label: 'Showcase', href: '#showcase' },
   { label: 'Careers', href: '#careers' },
@@ -16,7 +16,7 @@ export const heroContent = {
   subheading:
     'Techackode Pvt. Ltd. builds future-ready digital solutions across software development, AI, cybersecurity, automation, edutech, SaaS products, digital platforms, and enterprise transformation.',
   ctas: [
-    { label: 'Explore Services', href: '#services' },
+    { label: 'Explore Services', href: '/services' },
     { label: 'View Products', href: '#products' },
   ],
 }
@@ -212,7 +212,7 @@ export const footerContent = {
       title: 'Explore',
       links: [
         { label: 'Home', href: '#hero' },
-        { label: 'Services', href: '#services' },
+        { label: 'Services', href: '/services' },
         { label: 'Products', href: '#products' },
         { label: 'Showcase', href: '#showcase' },
         { label: 'Contact Us', href: '#contact' },
@@ -222,7 +222,7 @@ export const footerContent = {
       title: 'Company',
       links: [
         { label: 'About Us', href: '/about' },
-        { label: 'Divisions', href: '#divisions' },
+        { label: 'Divisions', href: '/divisions' },
         { label: 'Careers', href: '#careers' },
         { label: 'Innovation', href: '#showcase' },
       ],
@@ -230,11 +230,11 @@ export const footerContent = {
     {
       title: 'Solutions',
       links: [
-        { label: 'IT Solutions', href: '#divisions' },
-        { label: 'CyberTech', href: '#divisions' },
-        { label: 'Edutech', href: '#divisions' },
-        { label: 'AI & Digital Twins', href: '#divisions' },
-        { label: 'Digital Marketing', href: '#services' },
+        { label: 'IT Solutions', href: '/divisions/it-solutions' },
+        { label: 'CyberTech', href: '/divisions/cybertech' },
+        { label: 'Edutech', href: '/divisions/edutech' },
+        { label: 'AI & Digital Twins', href: '/divisions/ai-digital-twins' },
+        { label: 'Digital Marketing', href: '/services' },
       ],
     },
     {
