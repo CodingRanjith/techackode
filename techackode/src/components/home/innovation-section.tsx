@@ -15,9 +15,9 @@ export function InnovationSection() {
             transition={{ duration: 0.6 }}
             className="innovation-block relative overflow-hidden px-8 py-14 sm:px-14 sm:py-20"
           >
-            <div className="pointer-events-none absolute -top-24 -right-24 size-64 rounded-full bg-[var(--accent)] opacity-20 blur-3xl" />
+            <div className="pointer-events-none absolute -top-24 -right-24 size-64 rounded-full bg-white/20 opacity-30 blur-3xl" />
             <div className="relative z-10 mx-auto max-w-4xl text-center">
-              <span className="landing-badge mb-6 bg-white/10 text-[var(--cream)] before:bg-[var(--accent)]">
+              <span className="landing-badge mb-6 border border-white/20 bg-white/10 text-[var(--cream)] before:bg-white/80">
                 Innovation
               </span>
               <h2 className="text-display text-3xl text-[var(--cream)] sm:text-4xl lg:text-5xl">

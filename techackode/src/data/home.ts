@@ -40,7 +40,7 @@ export const divisions = [
     description:
       'Industry-oriented training, internships, certifications, workshops, bootcamps, and LMS-based learning.',
     icon: 'graduation',
-    accent: 'from-emerald-400/20 to-lime-300/10',
+    accent: 'from-[#295270]/20 to-[#524175]/10',
   },
   {
     id: 'it-solutions',
@@ -48,7 +48,7 @@ export const divisions = [
     description:
       'Websites, mobile apps, ERP, CRM, LMS, CMS, automation, APIs, and enterprise software systems.',
     icon: 'code',
-    accent: 'from-lime-400/15 to-emerald-300/10',
+    accent: 'from-[#295270]/20 to-[#524175]/10',
   },
   {
     id: 'cybertech',
@@ -56,7 +56,7 @@ export const divisions = [
     description:
       'Cybersecurity, ethical hacking, vulnerability assessment, security audits, and digital protection.',
     icon: 'shield',
-    accent: 'from-teal-400/15 to-emerald-300/10',
+    accent: 'from-[#295270]/20 to-[#524175]/10',
   },
   {
     id: 'ai-digital-twins',
@@ -64,7 +64,7 @@ export const divisions = [
     description:
       'AI automation, predictive intelligence, simulation systems, workflow automation, and digital twin engineering.',
     icon: 'brain',
-    accent: 'from-green-400/20 to-lime-300/15',
+    accent: 'from-[#295270]/20 to-[#524175]/10',
   },
   {
     id: 'ecommerce',
@@ -72,7 +72,7 @@ export const divisions = [
     description:
       'Commerce systems, online platforms, SaaS products, marketplaces, and scalable digital ecosystems.',
     icon: 'store',
-    accent: 'from-lime-300/15 to-emerald-200/10',
+    accent: 'from-[#295270]/20 to-[#524175]/10',
   },
   {
     id: 'digital-marketing',
@@ -80,7 +80,7 @@ export const divisions = [
     description:
       'SEO, branding, social media, paid ads, lead generation, content marketing, and growth campaigns.',
     icon: 'megaphone',
-    accent: 'from-emerald-300/15 to-green-200/10',
+    accent: 'from-[#295270]/20 to-[#524175]/10',
   },
 ] as const
 

@@ -1,8 +1,9 @@
 ﻿import { motion } from 'framer-motion'
+import { ArrowRight } from 'lucide-react'
 import { heroContent } from '@/data/home'
 import { Container } from '@/components/common/container'
-import { GlowButton } from '@/components/common/glow-button'
 import { HeroBadge } from '@/components/home/hero-badge'
+import divisionHeroImage from '@/assets/herosection/division.png'
 
 const trustItems = [
   'Software',
@@ -13,89 +14,125 @@ const trustItems = [
   'Enterprise',
 ] as const
 
+const heroStats = [
+  { value: '2025', label: 'Founded' },
+  { value: '6+', label: 'Divisions' },
+  { value: '360°', label: 'Digital stack' },
+] as const
+
+const fadeUp = {
+  initial: { opacity: 0, y: 18 },
+  animate: { opacity: 1, y: 0 },
+}
+
 export function HeroSection() {
+  const [ctaPrimary, ctaSecondary] = heroContent.ctas
+
   return (
-    <section id="hero" className="relative pt-28 pb-0 sm:pt-32">
+    <section id="hero" className="hero-pro">
+      <div className="hero-pro__mesh" aria-hidden />
+      <div className="hero-pro__ambient" aria-hidden />
+
       <Container className="relative z-10">
-        <div className="mx-auto max-w-5xl text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-8 flex justify-center"
-          >
+        <div className="hero-pro__grid">
+          <div className="hero-pro__content">
             <HeroBadge />
-          </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.08 }}
-            className="text-display text-[clamp(2.1rem,6vw,4.5rem)]"
-          >
-            <span className="block">Empowering the Future Through</span>
-            <span className="mt-2 block">
-              <span className="text-highlight">Technology</span>,{' '}
-              <span className="text-highlight">Learning</span> &{' '}
-              <span className="text-highlight">Innovation</span>
-            </span>
-          </motion.h1>
+            <motion.h1
+              {...fadeUp}
+              transition={{ duration: 0.5, delay: 0.06 }}
+              className="hero-pro__title"
+            >
+              <span className="block">Empowering the Future Through</span>
+              <span className="mt-1.5 block">
+                <span className="hero-pro__title-accent">Technology</span>,{' '}
+                <span className="hero-pro__title-accent">Learning</span> &{' '}
+                <span className="hero-pro__title-accent">Innovation</span>
+              </span>
+            </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="mx-auto mt-8 max-w-2xl text-sm leading-relaxed landing-muted sm:text-base lg:text-lg"
-          >
-            {heroContent.subheading}
-          </motion.p>
+            <motion.p
+              {...fadeUp}
+              transition={{ duration: 0.45, delay: 0.12 }}
+              className="hero-pro__lead"
+            >
+              {heroContent.subheading}
+            </motion.p>
+
+            <motion.div
+              {...fadeUp}
+              transition={{ duration: 0.45, delay: 0.18 }}
+              className="hero-pro__actions"
+            >
+              <a href={ctaPrimary.href} className="hero-pro__btn-outline">
+                {ctaPrimary.label}
+                <ArrowRight className="size-4" strokeWidth={2} />
+              </a>
+              <a href={ctaSecondary.href} className="hero-pro__btn-primary">
+                {ctaSecondary.label}
+                <ArrowRight className="size-4" strokeWidth={2} />
+              </a>
+            </motion.div>
+
+            <motion.div
+              {...fadeUp}
+              transition={{ duration: 0.45, delay: 0.24 }}
+              className="hero-pro__stats"
+              aria-label="Company highlights"
+            >
+              {heroStats.map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.3 + index * 0.06 }}
+                  className="hero-pro__stat"
+                >
+                  <p className="hero-pro__stat-value">{stat.value}</p>
+                  <p className="hero-pro__stat-label">{stat.label}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="mt-10 flex flex-wrap items-center justify-center gap-4"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="hero-pro__visual"
           >
-            <GlowButton href={heroContent.ctas[0].href} size="lg">
-              {heroContent.ctas[0].label}
-            </GlowButton>
-            <GlowButton href={heroContent.ctas[1].href} variant="ghost">
-              {heroContent.ctas[1].label}
-            </GlowButton>
+            <div className="hero-pro__visual-glow" aria-hidden />
+            <div className="hero-pro__visual-frame">
+              <img
+                src={divisionHeroImage}
+                alt="Techackode divisions overview"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
           </motion.div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="mt-14 flex justify-center"
-        >
-          <div className="scroll-hint flex-col items-center">
-            <span>Scroll</span>
-            <span className="scroll-hint-line" />
-          </div>
-        </motion.div>
       </Container>
 
-      <div className="trust-strip relative mt-12 py-6 sm:mt-16">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+        className="hero-pro__bar"
+      >
         <Container>
-          <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-xs font-bold tracking-[0.2em] text-[var(--ink-soft)] uppercase">
-              Multi-domain ecosystem
-            </p>
-            <div className="flex flex-wrap gap-x-8 gap-y-2">
+          <div className="hero-pro__bar-inner">
+            <p className="hero-pro__bar-label">Multi-domain ecosystem</p>
+            <div className="hero-pro__bar-tags">
               {trustItems.map((item) => (
-                <span
-                  key={item}
-                  className="text-sm font-semibold text-[var(--ink-muted)]"
-                >
+                <span key={item} className="hero-pro__bar-tag">
                   {item}
                 </span>
               ))}
             </div>
           </div>
         </Container>
-      </div>
+      </motion.div>
     </section>
   )
 }
