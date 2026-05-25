@@ -3,7 +3,7 @@ export const navLinks = [
   { label: 'About Us', href: '/about' },
   { label: 'Services', href: '/services' },
   { label: 'Divisions', href: '/divisions' },
-  { label: 'Products', href: '#products' },
+  { label: 'Products', href: '/products' },
   { label: 'Showcase', href: '/showcase' },
   { label: 'Careers', href: '/careers' },
   { label: 'Contact Us', href: '/contact' },
@@ -17,7 +17,7 @@ export const heroContent = {
     'Techackode Pvt. Ltd. builds future-ready digital solutions across software development, AI, cybersecurity, automation, edutech, SaaS products, digital platforms, and enterprise transformation.',
   ctas: [
     { label: 'Explore Services', href: '/services' },
-    { label: 'View Products', href: '#products' },
+    { label: 'View Products', href: '/products' },
   ],
 }
 
@@ -114,37 +114,37 @@ export const products = [
     id: 'worklogz',
     name: 'Worklogz',
     description:
-      'All-in-one ERP and workforce management platform for HR, attendance, tasks, CRM, payroll, and business operations.',
+      'All-in-one ERP and workforce management system for attendance, HR, tasks, CRM, payroll, and business operations.',
   },
   {
     id: 'ecomate',
     name: 'Ecomate',
     description:
-      'Smart e-commerce and digital business management platform for online selling and automation.',
+      'Smart e-commerce and digital business management platform focused on automation and online business operations.',
   },
   {
     id: 'smart-joshiyam',
     name: 'Smart Joshiyam',
     description:
-      'AI-integrated astrology and prediction platform combining traditional knowledge with modern technology.',
+      'AI-integrated astrology and intelligent prediction platform combining traditional concepts with modern technology.',
   },
   {
     id: 'unitranslate',
     name: 'UniTranslate',
     description:
-      'AI-powered multilingual translation platform for seamless communication across languages.',
+      'AI-powered multilingual translation platform enabling seamless communication across languages.',
   },
   {
     id: 'speakflow',
     name: 'SpeakFlow',
     description:
-      'AI-assisted spoken English learning platform for communication improvement and confidence building.',
+      'Interactive AI-assisted spoken English learning platform designed for modern communication improvement.',
   },
   {
     id: 'lms',
     name: 'LMS',
     description:
-      'Learning management platform for online courses, assessments, certificates, and student progress tracking.',
+      'Centralized learning management platform for online education, assessments, certifications, and student progress tracking.',
   },
   {
     id: 'easy-home-solutions',
@@ -213,7 +213,7 @@ export const footerContent = {
       links: [
         { label: 'Home', href: '#hero' },
         { label: 'Services', href: '/services' },
-        { label: 'Products', href: '#products' },
+        { label: 'Products', href: '/products' },
         { label: 'Showcase', href: '/showcase' },
         { label: 'Contact Us', href: '/contact' },
       ],
@@ -240,11 +240,11 @@ export const footerContent = {
     {
       title: 'Platforms',
       links: [
-        { label: 'Worklogz', href: '#products' },
-        { label: 'Ecomate', href: '#products' },
-        { label: 'LMS', href: '#products' },
-        { label: 'SpeakFlow', href: '#products' },
-        { label: 'UniTranslate', href: '#products' },
+        { label: 'Worklogz', href: '/products/worklogz' },
+        { label: 'Ecomate', href: '/products/ecomate' },
+        { label: 'LMS', href: '/products/lms' },
+        { label: 'SpeakFlow', href: '/products/speakflow' },
+        { label: 'UniTranslate', href: '/products/unitranslate' },
       ],
     },
   ],

@@ -17,6 +17,7 @@ import EcommerceDigitalPlatformsPage from '@/pages/Divisions/ecommerce-digital-p
 import CareersPage from '@/pages/Careers'
 import ShowcasePage from '@/pages/Showcase'
 import ContactPage from '@/pages/Contact'
+import ProductsPage from '@/pages/Products'
 
 export const router = createBrowserRouter([
   { path: '/', element: <HomePage /> },
@@ -39,5 +40,6 @@ export const router = createBrowserRouter([
   },
   { path: '/careers', element: <CareersPage /> },
   { path: '/showcase', element: <ShowcasePage /> },
+  { path: '/products', element: <ProductsPage /> },
   { path: '/contact', element: <ContactPage /> },
 ])
