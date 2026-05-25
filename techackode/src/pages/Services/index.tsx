@@ -44,7 +44,7 @@ export default function ServicesPage() {
               development, AI, security, and growth.
             </p>
             <div className="mt-8 flex justify-center">
-              <GlowButton href="/#contact">Get in Touch</GlowButton>
+              <GlowButton href="/contact">Get in Touch</GlowButton>
             </div>
           </ScrollReveal>
         </Container>

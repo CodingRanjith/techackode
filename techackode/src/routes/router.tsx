@@ -14,6 +14,9 @@ import ItSolutionsPage from '@/pages/Divisions/it-solutions'
 import CybertechPage from '@/pages/Divisions/cybertech'
 import AiDigitalTwinsPage from '@/pages/Divisions/ai-digital-twins'
 import EcommerceDigitalPlatformsPage from '@/pages/Divisions/ecommerce-digital-platforms'
+import CareersPage from '@/pages/Careers'
+import ShowcasePage from '@/pages/Showcase'
+import ContactPage from '@/pages/Contact'
 
 export const router = createBrowserRouter([
   { path: '/', element: <HomePage /> },
@@ -34,4 +37,7 @@ export const router = createBrowserRouter([
     path: '/divisions/ecommerce-digital-platforms',
     element: <EcommerceDigitalPlatformsPage />,
   },
+  { path: '/careers', element: <CareersPage /> },
+  { path: '/showcase', element: <ShowcasePage /> },
+  { path: '/contact', element: <ContactPage /> },
 ])

@@ -7,6 +7,7 @@ import { aboutNavItems } from '@/data/about'
 import { AboutDropdown } from '@/components/layout/about-dropdown'
 import { GlowButton } from '@/components/common/glow-button'
 import { cn } from '@/lib/utils'
+import { scrollToHash, scrollToTop } from '@/lib/scroll'
 
 function NavAnchor({
   href,
@@ -22,22 +23,38 @@ function NavAnchor({
   const location = useLocation()
   const resolvedHref =
     href.startsWith('#') && location.pathname !== '/' ? `/${href}` : href
-  const isRoute = resolvedHref.startsWith('/')
+  const hashIndex = resolvedHref.indexOf('#')
+  const hasHash = hashIndex !== -1
+  const isRoute = resolvedHref.startsWith('/') && !hasHash
   const linkClass = cn(
     'rounded-full px-3 py-2 text-xs font-semibold tracking-wide text-[var(--ink-muted)] uppercase transition hover:bg-[var(--cream-deep)] hover:text-[var(--ink)]',
     className,
   )
 
-  if (isRoute) {
+  const handleClick = () => {
+    onClick?.()
+    if (isRoute) {
+      scrollToTop()
+      return
+    }
+    if (hasHash) {
+      const hash = resolvedHref.slice(hashIndex)
+      if (location.pathname === '/' && !resolvedHref.startsWith('/')) {
+        scrollToHash(hash)
+      }
+    }
+  }
+
+  if (isRoute || hasHash) {
     return (
-      <Link to={resolvedHref} onClick={onClick} className={linkClass}>
+      <Link to={resolvedHref} onClick={handleClick} className={linkClass}>
         {label}
       </Link>
     )
   }
 
   return (
-    <a href={resolvedHref} onClick={onClick} className={linkClass}>
+    <a href={resolvedHref} onClick={handleClick} className={linkClass}>
       {label}
     </a>
   )
@@ -64,7 +81,11 @@ export function Navbar() {
       )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 sm:px-8">
-        <Link to="/" className="group flex shrink-0 items-center gap-2.5">
+        <Link
+          to="/"
+          onClick={() => scrollToTop()}
+          className="group flex shrink-0 items-center gap-2.5"
+        >
           <span className="flex size-9 items-center justify-center rounded-full bg-[var(--ink)] text-sm font-bold text-[var(--cream)]">
             T
           </span>
@@ -82,7 +103,7 @@ export function Navbar() {
         </nav>
 
         <div className="hidden sm:block">
-          <GlowButton href="#contact" size="sm">
+          <GlowButton href="/contact" size="sm" onClick={() => scrollToTop()}>
             Contact Us
           </GlowButton>
         </div>
@@ -111,7 +132,10 @@ export function Navbar() {
                   <div key={link.href} className="space-y-1">
                     <Link
                       to="/about"
-                      onClick={() => setOpen(false)}
+                      onClick={() => {
+                        scrollToTop()
+                        setOpen(false)
+                      }}
                       className="block rounded-xl px-4 py-3 text-sm font-semibold text-[var(--ink-muted)] hover:bg-[var(--cream-deep)] hover:text-[var(--ink)]"
                     >
                       About Us
@@ -122,7 +146,10 @@ export function Navbar() {
                         <Link
                           key={item.href}
                           to={item.href}
-                          onClick={() => setOpen(false)}
+                          onClick={() => {
+                            scrollToTop()
+                            setOpen(false)
+                          }}
                           className="block rounded-xl py-2 pr-4 pl-8 text-sm text-[var(--ink-muted)] hover:bg-[var(--cream-deep)] hover:text-[var(--ink)]"
                         >
                           {item.label}
@@ -139,7 +166,14 @@ export function Navbar() {
                   />
                 ),
               )}
-              <GlowButton href="#contact" className="mt-2 w-full justify-center">
+              <GlowButton
+                href="/contact"
+                className="mt-2 w-full justify-center"
+                onClick={() => {
+                  scrollToTop()
+                  setOpen(false)
+                }}
+              >
                 Contact Us
               </GlowButton>
             </nav>

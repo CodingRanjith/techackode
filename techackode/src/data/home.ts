@@ -4,9 +4,9 @@ export const navLinks = [
   { label: 'Services', href: '/services' },
   { label: 'Divisions', href: '/divisions' },
   { label: 'Products', href: '#products' },
-  { label: 'Showcase', href: '#showcase' },
-  { label: 'Careers', href: '#careers' },
-  { label: 'Contact Us', href: '#contact' },
+  { label: 'Showcase', href: '/showcase' },
+  { label: 'Careers', href: '/careers' },
+  { label: 'Contact Us', href: '/contact' },
 ] as const
 
 export const heroContent = {
@@ -178,14 +178,14 @@ export const showcase = {
   heading: 'Our Showcase',
   content:
     'Explore our growing ecosystem of digital products, enterprise solutions, automation systems, learning platforms, and client-focused innovations.',
-  cta: { label: 'View Showcase', href: '#showcase' },
+  cta: { label: 'View Showcase', href: '/showcase' },
 }
 
 export const careersCta = {
   heading: 'Build Your Career with Techackode',
   content:
     'Join our innovation-driven team and work on real-time projects across AI, software development, cybersecurity, automation, digital marketing, and enterprise systems.',
-  cta: { label: 'Explore Careers', href: '#careers' },
+  cta: { label: 'Explore Careers', href: '/careers' },
 }
 
 export const contactCta = {
@@ -193,8 +193,8 @@ export const contactCta = {
   content:
     'Whether you need software development, AI automation, cybersecurity, digital marketing, training solutions, or enterprise platforms, Techackode is ready to build with you.',
   ctas: [
-    { label: 'Contact Us', href: '#contact' },
-    { label: 'Schedule a Consultation', href: '#contact' },
+    { label: 'Contact Us', href: '/contact' },
+    { label: 'Schedule a Consultation', href: '/contact#business-inquiry' },
   ],
 }
 
@@ -214,8 +214,8 @@ export const footerContent = {
         { label: 'Home', href: '#hero' },
         { label: 'Services', href: '/services' },
         { label: 'Products', href: '#products' },
-        { label: 'Showcase', href: '#showcase' },
-        { label: 'Contact Us', href: '#contact' },
+        { label: 'Showcase', href: '/showcase' },
+        { label: 'Contact Us', href: '/contact' },
       ],
     },
     {
@@ -223,8 +223,8 @@ export const footerContent = {
       links: [
         { label: 'About Us', href: '/about' },
         { label: 'Divisions', href: '/divisions' },
-        { label: 'Careers', href: '#careers' },
-        { label: 'Innovation', href: '#showcase' },
+        { label: 'Careers', href: '/careers' },
+        { label: 'Innovation', href: '/showcase' },
       ],
     },
     {

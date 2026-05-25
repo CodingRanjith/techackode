@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { ChevronDown } from 'lucide-react'
 import { aboutNavItems } from '@/data/about'
 import { cn } from '@/lib/utils'
+import { scrollToTop } from '@/lib/scroll'
 
 export function AboutDropdown() {
   const [open, setOpen] = useState(false)
@@ -17,6 +18,7 @@ export function AboutDropdown() {
     >
       <Link
         to="/about"
+        onClick={() => scrollToTop()}
         className={cn(
           'inline-flex items-center gap-1 rounded-full px-3 py-2 text-xs font-semibold tracking-wide uppercase transition',
           isAboutSection
@@ -33,6 +35,7 @@ export function AboutDropdown() {
             <Link
               key={item.href}
               to={item.href}
+              onClick={() => scrollToTop()}
               className="block rounded-xl px-4 py-2.5 transition hover:bg-[var(--cream-deep)]"
             >
               <span className="block text-sm font-semibold text-[var(--ink)]">{item.label}</span>

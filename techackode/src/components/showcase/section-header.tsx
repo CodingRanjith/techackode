@@ -1,3 +1,1 @@
-﻿export default function Placeholder() {
-  return null
-}
+﻿export { SectionHeader } from '@/components/about/section-header'
