@@ -15,12 +15,17 @@ const socialIcons = {
   linkedin: LinkedinIcon,
 } as const
 
-export function Footer() {
+type FooterProps = {
+  variant?: 'default' | 'home'
+}
+
+export function Footer({ variant = 'default' }: FooterProps) {
+  const isHome = variant === 'home'
   const year = new Date().getFullYear()
   const { brandName, tagline, contact, columns, legal, social } = footerContent
 
   return (
-    <footer className="footer-shell">
+    <footer className={isHome ? 'hp-footer' : 'footer-shell'}>
       <Container>
         <div className="footer-card">
           <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8 xl:gap-10">

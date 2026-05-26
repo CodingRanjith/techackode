@@ -2,18 +2,25 @@
 import { Footer } from '@/components/layout/footer'
 import { Navbar } from '@/components/layout/navbar'
 import { ScrollToTopOnNavigate } from '@/components/layout/scroll-to-top'
+import { cn } from '@/lib/utils'
 
 type MainLayoutProps = {
   children: ReactNode
+  variant?: 'default' | 'home'
 }
 
-export function MainLayout({ children }: MainLayoutProps) {
+export function MainLayout({ children, variant = 'default' }: MainLayoutProps) {
   return (
-    <div className="landing-page min-h-svh overflow-x-hidden">
+    <div
+      className={cn(
+        'min-h-svh overflow-x-hidden',
+        variant === 'home' ? 'home-premium' : 'landing-page',
+      )}
+    >
       <ScrollToTopOnNavigate />
-      <Navbar />
+      <Navbar variant={variant} />
       <main>{children}</main>
-      <Footer />
+      <Footer variant={variant} />
     </div>
   )
 }

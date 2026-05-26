@@ -3,15 +3,14 @@ import { heroContent } from '@/data/home'
 
 export function HeroBadge() {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.45 }}
+    <motion.span
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5 }}
+      className="hp-eyebrow hp-eyebrow--glow"
     >
-      <span className="hero-pro__badge">
-        <span className="hero-pro__badge-dot" aria-hidden />
-        {heroContent.badge}
-      </span>
-    </motion.div>
+      <span className="hp-eyebrow-dot" aria-hidden />
+      {heroContent.badge}
+    </motion.span>
   )
 }

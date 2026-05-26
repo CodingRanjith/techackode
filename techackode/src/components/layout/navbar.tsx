@@ -14,11 +14,13 @@ function NavAnchor({
   label,
   onClick,
   className,
+  isHome,
 }: {
   href: string
   label: string
   onClick?: () => void
   className?: string
+  isHome?: boolean
 }) {
   const location = useLocation()
   const resolvedHref =
@@ -27,7 +29,10 @@ function NavAnchor({
   const hasHash = hashIndex !== -1
   const isRoute = resolvedHref.startsWith('/') && !hasHash
   const linkClass = cn(
-    'rounded-full px-3 py-2 text-xs font-semibold tracking-wide text-[var(--ink-muted)] uppercase transition hover:bg-[var(--cream-deep)] hover:text-[var(--ink)]',
+    'rounded-full px-3 py-2 text-xs font-semibold tracking-wide transition',
+    isHome
+      ? 'text-[var(--hp-muted)] uppercase hover:bg-[var(--hp-bg-subtle)] hover:text-[var(--hp-navy)]'
+      : 'text-[var(--ink-muted)] uppercase hover:bg-[var(--cream-deep)] hover:text-[var(--ink)]',
     className,
   )
 
@@ -60,7 +65,12 @@ function NavAnchor({
   )
 }
 
-export function Navbar() {
+type NavbarProps = {
+  variant?: 'default' | 'home'
+}
+
+export function Navbar({ variant = 'default' }: NavbarProps) {
+  const isHome = variant === 'home'
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   useEffect(() => {
@@ -76,20 +86,40 @@ export function Navbar() {
       className={cn(
         'fixed inset-x-0 top-0 z-50 transition-all duration-300',
         scrolled
-          ? 'border-b border-[var(--border-soft)] bg-[var(--surface-elevated)]/92 py-3 shadow-sm backdrop-blur-xl'
+          ? isHome
+            ? 'py-3'
+            : 'border-b border-[var(--border-soft)] bg-[var(--surface-elevated)]/92 py-3 shadow-sm backdrop-blur-xl'
           : 'bg-transparent py-5',
       )}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 sm:px-8">
+      <div
+        className={cn(
+          'mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 sm:px-8',
+          isHome && scrolled && 'hp-nav-glass rounded-2xl py-3',
+          isHome && !scrolled && 'pt-1',
+        )}
+      >
         <Link
           to="/"
           onClick={() => scrollToTop()}
           className="group flex shrink-0 items-center gap-2.5"
         >
-          <span className="flex size-9 items-center justify-center rounded-full bg-[var(--ink)] text-sm font-bold text-[var(--cream)]">
+          <span
+            className={cn(
+              'flex size-9 items-center justify-center rounded-full text-sm font-bold text-white',
+              isHome ? 'bg-[var(--hp-navy)]' : 'bg-[var(--ink)] text-[var(--cream)]',
+            )}
+          >
             T
           </span>
-          <span className="text-lg font-bold tracking-tight text-[var(--ink)]">Techackode</span>
+          <span
+            className={cn(
+              'text-lg font-bold tracking-tight',
+              isHome ? 'text-[var(--hp-navy)]' : 'text-[var(--ink)]',
+            )}
+          >
+            Techackode
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-0.5 xl:flex">
@@ -97,20 +127,31 @@ export function Navbar() {
             link.label === 'About Us' ? (
               <AboutDropdown key={link.href} />
             ) : (
-              <NavAnchor key={link.href} href={link.href} label={link.label} />
+              <NavAnchor key={link.href} href={link.href} label={link.label} isHome={isHome} />
             ),
           )}
         </nav>
 
         <div className="hidden sm:block">
-          <GlowButton href="/contact" size="sm" onClick={() => scrollToTop()}>
-            Contact Us
-          </GlowButton>
+          {isHome ? (
+            <Link to="/contact" onClick={() => scrollToTop()} className="hp-btn-primary !py-2.5 !text-sm">
+              Contact Us
+            </Link>
+          ) : (
+            <GlowButton href="/contact" size="sm" onClick={() => scrollToTop()}>
+              Contact Us
+            </GlowButton>
+          )}
         </div>
 
         <button
           type="button"
-          className="flex size-10 items-center justify-center rounded-full border border-[var(--border-soft)] bg-[var(--cream-card)] text-[var(--ink)] xl:hidden"
+          className={cn(
+            'flex size-10 items-center justify-center rounded-full border xl:hidden',
+            isHome
+              ? 'border-[var(--hp-accent)] bg-white/90 text-[var(--hp-ink)]'
+              : 'border-[var(--border-soft)] bg-[var(--cream-card)] text-[var(--ink)]',
+          )}
           onClick={() => setOpen((v) => !v)}
           aria-label="Menu"
         >
@@ -124,7 +165,12 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden border-t border-[var(--border-soft)] bg-[var(--surface-elevated)]/98 backdrop-blur-xl xl:hidden"
+            className={cn(
+              'overflow-hidden border-t backdrop-blur-xl xl:hidden',
+              isHome
+                ? 'border-[var(--hp-accent)] bg-white/95'
+                : 'border-[var(--border-soft)] bg-[var(--surface-elevated)]/98',
+            )}
           >
             <nav className="flex flex-col gap-1 px-5 py-4">
               {navLinks.map((link) =>
@@ -163,6 +209,7 @@ export function Navbar() {
                     label={link.label}
                     onClick={() => setOpen(false)}
                     className="block w-full rounded-xl px-4 py-3 text-left text-sm font-semibold normal-case tracking-normal"
+                    isHome={isHome}
                   />
                 ),
               )}
