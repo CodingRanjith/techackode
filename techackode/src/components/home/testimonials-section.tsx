@@ -11,7 +11,7 @@ import 'swiper/css/pagination'
 export function TestimonialsSection() {
   return (
     <SectionShell id="testimonials" bg="mesh" cinematic="section">
-      <Container className="py-24 sm:py-32">
+      <Container className="hp-section-y">
         <PremiumHeading
           eyebrow={testimonialsSection.eyebrow}
           title={testimonialsSection.title}
@@ -41,16 +41,16 @@ export function TestimonialsSection() {
                 className="h-full"
               >
                 <Quote className="size-10 text-[var(--hp-navy)] opacity-25" strokeWidth={1.5} aria-hidden />
-                <p className="mt-6 flex-1 text-lg leading-relaxed text-[var(--hp-ink)]">
+                <p className="mt-6 flex-1 text-base leading-[1.75] text-[var(--hp-ink)] sm:text-lg">
                   &ldquo;{item.quote}&rdquo;
                 </p>
                 <div className="mt-8 flex items-center gap-4 border-t border-[var(--hp-border)] pt-6">
-                  <span className="flex size-12 items-center justify-center rounded-full bg-[var(--hp-navy)] text-sm font-bold text-white shadow-md">
+                  <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-[var(--hp-navy)] text-sm font-bold text-white shadow-md">
                     {item.name.charAt(0)}
                   </span>
-                  <div>
-                    <p className="font-bold text-[var(--hp-ink)]">{item.name}</p>
-                    <p className="text-sm text-[var(--hp-muted)]">{item.role}</p>
+                  <div className="min-w-0">
+                    <p className="font-bold leading-snug text-[var(--hp-ink)]">{item.name}</p>
+                    <p className="mt-0.5 text-sm leading-relaxed text-[var(--hp-muted)]">{item.role}</p>
                   </div>
                 </div>
               </GlowCard3D>

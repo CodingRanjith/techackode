@@ -13,7 +13,7 @@ import 'swiper/css/effect-creative'
 export function ShowcaseSection() {
   return (
     <SectionShell id="showcase" bg="mesh" cinematic="section">
-      <Container className="py-24 sm:py-32">
+      <Container className="hp-section-y">
         <PremiumHeading
           eyebrow="Showcase"
           title={showcase.heading}
@@ -64,10 +64,10 @@ export function ShowcaseSection() {
                     </span>
                     <span className="size-3 rounded-full bg-[var(--hp-navy)]" />
                   </div>
-                  <h3 className="mt-8 text-2xl font-bold text-[var(--hp-ink)] sm:text-3xl">
+                  <h3 className="mt-8 hp-h-card sm:text-[1.35rem]">
                     {product.name}
                   </h3>
-                  <p className="mt-4 text-sm leading-relaxed text-[var(--hp-muted)] sm:text-base">
+                  <p className="mt-4 hp-body-sm max-w-none">
                     {product.description}
                   </p>
                   <div className="mt-8 h-1 w-full overflow-hidden rounded-full bg-[var(--hp-bg-mesh)]">

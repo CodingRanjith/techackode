@@ -8,7 +8,7 @@ import { PremiumHeading, SectionShell } from '@/components/home/ui'
 export function ServicesSection() {
   return (
     <SectionShell id="services" bg="gradient" cinematic="section">
-      <Container className="py-24 sm:py-32">
+      <Container className="hp-section-y">
         <div className="hp-services-sticky">
           <aside className="hp-services-sticky__aside">
             <PremiumHeading
@@ -35,10 +35,10 @@ export function ServicesSection() {
               >
                 <Link to="/services" className="flex items-start justify-between gap-6">
                   <div>
-                    <span className="text-sm font-bold text-[var(--hp-navy)]">
+                    <span className="hp-service-row__index">
                       {String(index + 1).padStart(2, '0')}
                     </span>
-                    <h3 className="mt-3 text-2xl font-bold text-[var(--hp-ink)] transition group-hover:text-[var(--hp-navy-light)] sm:text-3xl">
+                    <h3 className="hp-service-row__title transition group-hover:text-[var(--hp-navy-light)]">
                       {service}
                     </h3>
                   </div>

@@ -1,4 +1,4 @@
-﻿import { motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { ArrowRight, Play } from 'lucide-react'
 import { heroContent } from '@/data/home'
 import { Container } from '@/components/common/container'
@@ -38,10 +38,10 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className="hp-hero__title mt-5 text-[var(--hp-ink)]"
+              className="hp-hero__title mt-5"
             >
-              <span className="block">Empowering the Future Through</span>
-              <span className="mt-1.5 block text-[var(--hp-black)]">
+              <span className="block text-[var(--hp-ink)]">Empowering the Future Through</span>
+              <span className="block text-[var(--hp-black)]">
                 Technology, Learning & Innovation
               </span>
             </motion.h1>
@@ -50,7 +50,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="hp-hero__lead mt-5 max-w-lg"
+              className="hp-hero__lead mt-6"
             >
               {heroContent.subheading}
             </motion.p>

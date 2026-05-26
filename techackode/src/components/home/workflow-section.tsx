@@ -6,7 +6,7 @@ import { PremiumHeading, SectionShell } from '@/components/home/ui'
 export function WorkflowSection() {
   return (
     <SectionShell id="workflow" bg="white" cinematic="section">
-      <Container className="py-24 sm:py-32">
+      <Container className="hp-section-y">
         <PremiumHeading
           eyebrow={workflowSection.eyebrow}
           title={workflowSection.title}
@@ -21,10 +21,8 @@ export function WorkflowSection() {
               <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-[var(--hp-navy)] text-lg font-bold text-white shadow-lg shadow-[rgba(25,36,66,0.25)]">
                 {step.step}
               </span>
-              <h3 className="mt-6 text-xl font-bold text-[var(--hp-ink)]">{step.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-[var(--hp-muted)]">
-                {step.description}
-              </p>
+              <h3 className="mt-6 hp-h-card">{step.title}</h3>
+              <p className="mt-3 hp-body-sm">{step.description}</p>
             </GlowCard3D>
           ))}
         </div>

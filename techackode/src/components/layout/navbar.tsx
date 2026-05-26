@@ -114,7 +114,7 @@ export function Navbar({ variant = 'default' }: NavbarProps) {
           </span>
           <span
             className={cn(
-              'text-lg font-bold tracking-tight',
+              'brand-wordmark text-lg',
               isHome ? 'text-[var(--hp-navy)]' : 'text-[var(--ink)]',
             )}
           >

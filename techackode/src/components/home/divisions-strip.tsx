@@ -17,7 +17,7 @@ const iconMap: Record<string, LucideIcon> = {
 export function DivisionsStrip() {
   return (
     <SectionShell id="divisions" bg="white" cinematic="section">
-      <Container className="py-24 sm:py-32">
+      <Container className="hp-section-y">
         <PremiumHeading
           eyebrow="Ecosystem"
           title={divisionsSection.heading}
@@ -37,13 +37,9 @@ export function DivisionsStrip() {
                     <span className="hp-icon-box relative size-12 rounded-2xl transition group-hover:scale-105">
                       <Icon className="size-5" strokeWidth={2} aria-hidden />
                     </span>
-                    <h3 className="relative mt-5 text-lg font-bold text-[var(--hp-ink)]">
-                      {division.title}
-                    </h3>
-                    <p className="relative mt-2 text-sm leading-relaxed text-[var(--hp-muted)]">
-                      {division.description}
-                    </p>
-                    <span className="relative mt-6 inline-flex items-center gap-1 text-sm font-semibold text-[var(--hp-navy)]">
+                    <h3 className="relative mt-5 hp-h-card">{division.title}</h3>
+                    <p className="relative mt-3 hp-body-sm">{division.description}</p>
+                    <span className="relative mt-6 inline-flex items-center gap-1 text-sm font-semibold leading-snug text-[var(--hp-navy)]">
                       Explore
                       <ArrowUpRight className="size-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </span>

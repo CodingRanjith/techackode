@@ -7,7 +7,7 @@ export function HomeCtaSection() {
   const [primary, secondary] = homeCtaSection.ctas
 
   return (
-    <section id="cta" className="relative overflow-hidden py-24 sm:py-32">
+    <section id="cta" className="relative overflow-hidden hp-section-y">
       <CinematicBackground variant="cta" />
       <Container className="relative z-10">
         <GlowCard3D innerClassName="hp-cta-mega px-6 py-10 text-center sm:px-10 sm:py-14">
@@ -25,10 +25,10 @@ export function HomeCtaSection() {
             <span className="hp-eyebrow-dot" aria-hidden />
             {homeCtaSection.eyebrow}
           </span>
-          <h2 className="relative mt-8 text-3xl font-bold tracking-tight text-[var(--hp-ink)] sm:text-5xl lg:text-6xl">
+          <h2 className="relative mx-auto mt-8 hp-h-section hp-h-section--lg hp-h-section--center text-center">
             {homeCtaSection.title}
           </h2>
-          <p className="relative mx-auto mt-6 max-w-2xl text-base text-[var(--hp-muted)] sm:text-lg">
+          <p className="relative mx-auto hp-subtitle-section hp-subtitle-section--center text-center">
             {homeCtaSection.subtitle}
           </p>
           <div className="relative mt-10 flex flex-wrap items-center justify-center gap-4">

@@ -18,6 +18,8 @@ export function PremiumHeading({
   size = 'default',
   className,
 }: PremiumHeadingProps) {
+  const isCenter = align === 'center'
+
   return (
     <motion.header
       initial={{ opacity: 0, y: 28 }}
@@ -25,8 +27,8 @@ export function PremiumHeading({
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       className={cn(
-        'relative mb-14 max-w-4xl',
-        align === 'center' && 'mx-auto text-center',
+        'hp-section-header',
+        isCenter && 'hp-section-header--center text-center',
         className,
       )}
     >
@@ -38,16 +40,20 @@ export function PremiumHeading({
       )}
       <h2
         className={cn(
-          'mt-5 font-bold tracking-tight text-[var(--hp-ink)]',
-          size === 'hero'
-            ? 'text-4xl sm:text-5xl lg:text-6xl'
-            : 'text-3xl sm:text-4xl lg:text-[2.75rem] leading-[1.08]',
+          'hp-h-section',
+          size === 'hero' && 'hp-h-section--lg',
+          isCenter && 'hp-h-section--center',
         )}
       >
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-5 text-base leading-relaxed text-[var(--hp-muted)] sm:text-lg sm:leading-relaxed">
+        <p
+          className={cn(
+            'hp-subtitle-section',
+            isCenter && 'hp-subtitle-section--center text-center',
+          )}
+        >
           {subtitle}
         </p>
       )}

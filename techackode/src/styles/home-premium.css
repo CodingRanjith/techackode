@@ -6,8 +6,8 @@
   --hp-navy-light: #3d4f6f;
   --hp-ink: #192442;
   --hp-black: #000000;
-  --hp-muted: #4e5d78;
-  --hp-soft: #6b7a94;
+  --hp-muted: #3d4a63;
+  --hp-soft: #5a677d;
   --hp-white: #ffffff;
   --hp-bg: #ffffff;
   --hp-bg-subtle: #f7f9fc;
@@ -24,11 +24,136 @@
   --hp-shadow-xl: 0 24px 48px -12px rgba(25, 37, 66, 0.14);
   --hp-shadow-sm: 0 4px 20px rgba(25, 37, 66, 0.08);
   --hp-shadow-glow: 0 12px 40px rgba(25, 37, 66, 0.1);
-  --font-home: 'Plus Jakarta Sans', 'DM Sans', system-ui, sans-serif;
+  --font-home: var(--font-sans);
 
   background: var(--hp-white);
   color: var(--hp-ink);
   font-family: var(--font-home);
+  font-size: 1rem;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ─── Readable typography (spacing, alignment, contrast) ─── */
+.home-premium .hp-h-section {
+  margin-top: 1.25rem;
+  max-width: 36rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  color: var(--hp-ink);
+  text-wrap: balance;
+}
+
+.home-premium .hp-h-section--lg {
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  line-height: 1.15;
+  max-width: 40rem;
+}
+
+.home-premium .hp-h-section--center,
+.home-premium .hp-subtitle-section--center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-premium .hp-subtitle-section {
+  margin-top: 1.25rem;
+  max-width: 42rem;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--hp-muted);
+}
+
+@media (min-width: 640px) {
+  .home-premium .hp-subtitle-section {
+    margin-top: 1.5rem;
+    font-size: 1.125rem;
+  }
+}
+
+.home-premium .hp-h-card {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  color: var(--hp-ink);
+}
+
+@media (min-width: 640px) {
+  .home-premium .hp-h-card {
+    font-size: 1.25rem;
+  }
+}
+
+.home-premium .hp-body {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--hp-muted);
+}
+
+.home-premium .hp-body-sm {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--hp-muted);
+}
+
+@media (min-width: 640px) {
+  .home-premium .hp-body-sm {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+}
+
+.home-premium .hp-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--hp-soft);
+}
+
+.home-premium .hp-section-header {
+  position: relative;
+  margin-bottom: 3rem;
+  max-width: 42rem;
+}
+
+.home-premium .hp-section-header--center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.home-premium .hp-section-header--center .hp-h-section,
+.home-premium .hp-section-header--center .hp-subtitle-section {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .home-premium .hp-section-header {
+    margin-bottom: 3.5rem;
+  }
+}
+
+.home-premium .hp-section-y {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 640px) {
+  .home-premium .hp-section-y {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
 }
 
 /* Visible icon container — fixes low-contrast / missing icon look */
@@ -168,14 +293,15 @@
 .home-premium .hp-eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
-  padding: 0.45rem 1rem;
+  gap: 0.5rem;
+  padding: 0.4rem 0.9rem;
   border-radius: 9999px;
   border: 1px solid var(--hp-border);
   background: var(--hp-white);
   font-size: 0.6875rem;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  line-height: 1.3;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--hp-navy);
 }
@@ -262,7 +388,7 @@
 
 /* ─── Hero ─── */
 .hp-hero {
-  --font-hero: 'Inter', 'DM Sans', system-ui, sans-serif;
+  --font-hero: var(--font-display);
   position: relative;
   overflow: hidden;
   min-height: auto;
@@ -285,21 +411,28 @@
 
 .hp-hero__title {
   font-family: var(--font-hero);
+  max-width: 28rem;
   font-size: clamp(1.75rem, 3.8vw, 2.5rem);
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.03em;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.hp-hero__title span + span {
+  margin-top: 0.35rem;
 }
 
 .hp-hero__lead {
-  font-size: 0.9375rem;
-  line-height: 1.65;
+  max-width: 34rem;
+  font-size: 1.0625rem;
+  line-height: 1.75;
   color: var(--hp-muted);
 }
 
 @media (min-width: 640px) {
   .hp-hero__lead {
-    font-size: 1rem;
+    font-size: 1.125rem;
   }
 }
 
@@ -316,10 +449,11 @@
 }
 
 .hp-hero__stat-label {
-  margin-top: 0.25rem;
-  font-size: 0.5625rem;
+  margin-top: 0.35rem;
+  font-size: 0.6875rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  line-height: 1.35;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--hp-soft);
 }
@@ -368,9 +502,11 @@
 }
 
 .hp-hero__trust-label {
+  flex-shrink: 0;
   font-size: 0.6875rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  line-height: 1.4;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--hp-soft);
 }
@@ -378,14 +514,15 @@
 .hp-hero__trust-logos {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem 1.25rem;
+  align-items: center;
+  gap: 0.5rem 1.5rem;
 }
 
 .hp-hero__trust-pill {
-  font-size: 0.8125rem;
-  font-weight: 600;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5;
   color: var(--hp-muted);
-  opacity: 0.85;
 }
 
 /* Mock dashboard internals */
@@ -441,14 +578,6 @@
 .hp-capabilities__header {
   position: relative;
   z-index: 1;
-  max-width: 42rem;
-  margin-bottom: 2.5rem;
-}
-
-@media (min-width: 768px) {
-  .hp-capabilities__header {
-    margin-bottom: 3rem;
-  }
 }
 
 .hp-cap-bento {
@@ -514,24 +643,11 @@
 
 .hp-cap-card__title {
   margin-top: 1.25rem;
-  font-size: 1.125rem;
-  font-weight: 700;
-  line-height: 1.25;
-  color: var(--hp-ink);
-}
-
-@media (min-width: 640px) {
-  .hp-cap-card__title {
-    font-size: 1.25rem;
-  }
 }
 
 .hp-cap-card__desc {
-  margin-top: 0.65rem;
-  max-width: 28rem;
-  font-size: 0.875rem;
-  line-height: 1.6;
-  color: var(--hp-muted);
+  margin-top: 0.75rem;
+  max-width: 32rem;
 }
 
 .hp-cap-bento__stack {
@@ -568,28 +684,33 @@
   }
 }
 
+.hp-split-feature__copy {
+  max-width: 34rem;
+}
+
 .hp-split-feature__eyebrow {
   font-size: 0.6875rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  line-height: 1.4;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--hp-ink);
 }
 
 .hp-split-feature__title {
-  margin-top: 0.75rem;
+  margin-top: 0.875rem;
   font-size: clamp(1.5rem, 3vw, 2.125rem);
   font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.03em;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
   color: var(--hp-ink);
+  text-wrap: balance;
 }
 
 .hp-split-feature__body {
-  margin-top: 1rem;
-  max-width: 32rem;
-  font-size: 0.9375rem;
-  line-height: 1.7;
+  margin-top: 1.25rem;
+  font-size: 1.0625rem;
+  line-height: 1.75;
   color: var(--hp-muted);
 }
 
@@ -617,6 +738,22 @@
     top: 7rem;
     align-self: start;
   }
+}
+
+.hp-service-row__index {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--hp-navy);
+}
+
+.hp-service-row__title {
+  margin-top: 0.75rem;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  color: var(--hp-ink);
 }
 
 .hp-service-row {
@@ -691,6 +828,37 @@
   box-shadow: var(--hp-shadow-glow);
 }
 
+.hp-faq-item__question {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--hp-ink);
+  text-align: left;
+}
+
+@media (min-width: 640px) {
+  .hp-faq-item__question {
+    font-size: 1.0625rem;
+  }
+}
+
+.hp-faq-item__answer {
+  padding: 0 1.5rem 1.5rem;
+  max-width: 52rem;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--hp-muted);
+}
+
+@media (min-width: 640px) {
+  .hp-faq-item__answer {
+    font-size: 1rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 1.75rem;
+  }
+}
+
 /* ─── Swiper ─── */
 .home-premium .swiper-pagination-bullet {
   background: var(--hp-soft) !important;
@@ -722,6 +890,18 @@
 .home-premium .hp-footer .footer-col-link:hover,
 .home-premium .hp-footer .footer-contact-item:hover {
   color: var(--hp-navy);
+}
+
+.home-premium .hp-footer .footer-brand-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.home-premium .hp-footer .footer-desc,
+.home-premium .hp-footer .footer-contact-item,
+.home-premium .hp-footer .footer-col-link {
+  font-family: var(--font-sans);
 }
 
 /* ─── Navbar home overrides ─── */

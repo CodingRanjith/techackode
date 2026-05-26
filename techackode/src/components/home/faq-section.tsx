@@ -11,7 +11,7 @@ export function FaqSection() {
 
   return (
     <SectionShell id="faq" bg="mesh" cinematic="section">
-      <Container className="py-24 sm:py-32">
+      <Container className="hp-section-y">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
           <PremiumHeading
             eyebrow={faqSection.eyebrow}
@@ -40,7 +40,7 @@ export function FaqSection() {
                     onClick={() => setOpenIndex(isOpen ? null : index)}
                     aria-expanded={isOpen}
                   >
-                    <span className="font-semibold text-[var(--hp-ink)]">{item.question}</span>
+                    <span className="hp-faq-item__question">{item.question}</span>
                     <ChevronDown
                       className={cn(
                         'size-5 shrink-0 text-[var(--hp-navy)] transition-transform duration-500',
@@ -57,9 +57,7 @@ export function FaqSection() {
                         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                         className="overflow-hidden"
                       >
-                        <p className="px-6 pb-6 text-sm leading-relaxed text-[var(--hp-muted)] sm:text-base">
-                          {item.answer}
-                        </p>
+                        <p className="hp-faq-item__answer">{item.answer}</p>
                       </motion.div>
                     )}
                   </AnimatePresence>

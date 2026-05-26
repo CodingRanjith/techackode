@@ -42,7 +42,7 @@
 
 /* Typography utilities */
 .text-display {
-  font-family: 'Syne', system-ui, sans-serif;
+  font-family: var(--font-display);
   font-weight: 800;
   letter-spacing: -0.04em;
   line-height: 0.95;
@@ -50,7 +50,7 @@
 }
 
 .text-display-sm {
-  font-family: 'Syne', system-ui, sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.05;
@@ -323,7 +323,7 @@
 
 /* Numbered feature */
 .feature-index {
-  font-family: 'Syne', system-ui, sans-serif;
+  font-family: var(--font-display);
   font-size: 2.5rem;
   font-weight: 800;
   line-height: 1;
@@ -362,18 +362,19 @@
 }
 
 .footer-brand-name {
-  font-family: 'Syne', system-ui, sans-serif;
+  font-family: var(--font-display);
   font-size: 1.35rem;
-  font-weight: 800;
+  font-weight: 600;
   color: var(--footer-heading);
   letter-spacing: -0.02em;
 }
 
 .footer-desc {
-  font-size: 0.875rem;
-  line-height: 1.65;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.7;
   color: var(--footer-body);
-  max-width: 18rem;
+  max-width: 20rem;
 }
 
 .footer-contact-item {
@@ -402,15 +403,18 @@
 }
 
 .footer-col-title {
+  font-family: var(--font-display);
   font-size: 0.9375rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--footer-heading);
   margin-bottom: 1.25rem;
 }
 
 .footer-col-link {
   display: block;
-  font-size: 0.875rem;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.5;
   color: var(--footer-body);
   padding: 0.35rem 0;
   transition: color 0.2s ease;
@@ -492,7 +496,7 @@
 
 /* Hero — split layout (SaaS / Zoho-style) */
 .hero-pro {
-  --font-hero: 'Plus Jakarta Sans', 'DM Sans', system-ui, sans-serif;
+  --font-hero: var(--font-display);
   --hero-blue: #1a73e8;
   --hero-blue-dark: #0f4c9a;
   --hero-navy: #0c1b33;

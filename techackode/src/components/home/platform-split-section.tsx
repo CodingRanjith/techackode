@@ -8,7 +8,7 @@ import { SectionShell } from '@/components/home/ui'
 export function PlatformSplitSection() {
   return (
     <SectionShell bg="white" cinematic="none">
-      <Container className="relative py-20 sm:py-28">
+      <Container className="relative hp-section-y">
         <div className="hp-split-feature">
           <div className="hp-split-feature__visual">
             <PlatformEcosystemVisual />

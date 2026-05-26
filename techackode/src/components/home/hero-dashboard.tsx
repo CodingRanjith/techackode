@@ -34,8 +34,8 @@ export function HeroDashboard() {
         <div className="grid gap-3 sm:grid-cols-3">
           {['Uptime', 'Projects', 'Velocity'].map((label, i) => (
             <div key={label} className="rounded-xl bg-[var(--hp-bg-subtle)] p-3">
-              <p className="text-[10px] font-medium text-[var(--hp-muted)]">{label}</p>
-              <p className="mt-1 text-lg font-bold text-[var(--hp-navy)]">
+              <p className="text-xs font-medium leading-snug text-[var(--hp-muted)]">{label}</p>
+              <p className="mt-1.5 text-lg font-bold leading-tight text-[var(--hp-navy)]">
                 {i === 0 ? '99.9%' : i === 1 ? '120+' : '+38%'}
               </p>
             </div>
@@ -43,7 +43,7 @@ export function HeroDashboard() {
         </div>
         <div className="mt-4 rounded-xl bg-[var(--hp-bg-subtle)] p-4">
           <div className="mb-3 flex items-center justify-between">
-            <span className="text-xs font-semibold text-[var(--hp-navy)]">Delivery analytics</span>
+            <span className="text-sm font-semibold leading-snug text-[var(--hp-navy)]">Delivery analytics</span>
             <span className="hp-mock-bar w-16" />
           </div>
           <div className="hp-mock-chart">
@@ -65,8 +65,8 @@ export function HeroDashboard() {
             <Zap className="size-4" strokeWidth={2} aria-hidden />
           </span>
           <div>
-            <p className="text-[10px] font-medium text-[var(--hp-muted)]">Automation</p>
-            <p className="text-sm font-bold text-[var(--hp-navy)]">Active</p>
+            <p className="text-xs font-medium text-[var(--hp-muted)]">Automation</p>
+            <p className="text-sm font-bold leading-snug text-[var(--hp-navy)]">Active</p>
           </div>
         </div>
       </motion.div>
@@ -81,8 +81,8 @@ export function HeroDashboard() {
             <Activity className="size-4" strokeWidth={2} aria-hidden />
           </span>
           <div>
-            <p className="text-[10px] font-medium text-[var(--hp-muted)]">Live systems</p>
-            <p className="text-sm font-bold text-[var(--hp-navy)]">24/7</p>
+            <p className="text-xs font-medium text-[var(--hp-muted)]">Live systems</p>
+            <p className="text-sm font-bold leading-snug text-[var(--hp-navy)]">24/7</p>
           </div>
         </div>
       </motion.div>
@@ -97,8 +97,8 @@ export function HeroDashboard() {
             <Layers className="size-4" strokeWidth={2} aria-hidden />
           </span>
           <div>
-            <p className="text-[10px] font-medium text-[var(--hp-muted)]">Stack depth</p>
-            <p className="text-sm font-bold text-[var(--hp-navy)]">360°</p>
+            <p className="text-xs font-medium text-[var(--hp-muted)]">Stack depth</p>
+            <p className="text-sm font-bold leading-snug text-[var(--hp-navy)]">360°</p>
           </div>
         </div>
       </motion.div>

@@ -44,6 +44,8 @@
 }
 
 :root {
+  --font-sans: 'Manrope', system-ui, sans-serif;
+  --font-display: 'Sora', system-ui, sans-serif;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -121,12 +123,18 @@
   }
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'DM Sans', system-ui, sans-serif;
+    font-family: var(--font-sans);
   }
   h1,
   h2,
   h3,
   h4 {
-    font-family: 'Syne', system-ui, sans-serif;
+    font-family: var(--font-display);
+  }
+
+  .brand-wordmark {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
   }
 }

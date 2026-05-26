@@ -18,7 +18,7 @@ export function PlatformEcosystemVisual() {
           <span className="size-2.5 rounded-full bg-[#febc2e]" />
           <span className="size-2.5 rounded-full bg-[#28c840]" />
         </div>
-        <span className="text-[10px] font-semibold tracking-wider text-[var(--hp-soft)] uppercase">
+        <span className="hp-label !normal-case !tracking-wide">
           Techackode delivery hub
         </span>
       </div>
@@ -36,8 +36,8 @@ export function PlatformEcosystemVisual() {
                 <Icon className="size-[1.125rem]" strokeWidth={2} aria-hidden />
               </span>
               <div className="min-w-0 flex-1">
-                <p className="text-sm font-semibold text-[var(--hp-ink)]">{pillar.label}</p>
-                <p className="mt-0.5 text-xs text-[var(--hp-muted)]">{pillar.detail}</p>
+                <p className="text-sm font-semibold leading-snug text-[var(--hp-ink)]">{pillar.label}</p>
+                <p className="mt-1 text-sm leading-relaxed text-[var(--hp-muted)]">{pillar.detail}</p>
               </div>
               <span className="shrink-0 rounded-full border border-[var(--hp-border)] bg-white px-2.5 py-1 text-[10px] font-semibold text-[var(--hp-ink)]">
                 {pillar.status}
@@ -50,8 +50,8 @@ export function PlatformEcosystemVisual() {
       <div className="mt-4 grid grid-cols-3 gap-2 rounded-xl border border-[var(--hp-border)] bg-[var(--hp-bg-subtle)] p-3">
         {platformSplitSection.metrics.map((metric) => (
           <div key={metric.label} className="text-center">
-            <p className="text-base font-bold text-[var(--hp-ink)]">{metric.value}</p>
-            <p className="mt-0.5 text-[10px] font-medium text-[var(--hp-soft)]">{metric.label}</p>
+            <p className="text-base font-bold leading-none text-[var(--hp-ink)]">{metric.value}</p>
+            <p className="mt-1.5 text-xs font-medium leading-snug text-[var(--hp-soft)]">{metric.label}</p>
           </div>
         ))}
       </div>
