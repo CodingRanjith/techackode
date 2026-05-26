@@ -2,7 +2,9 @@ import { motion } from 'framer-motion'
 import { Sparkles } from 'lucide-react'
 import { Container } from '@/components/common/container'
 import { featureIconMap, featuresSection } from '@/data/home-page'
+import { GlowCard3D } from '@/components/home/motion'
 import { SectionShell } from '@/components/home/ui'
+import { cn } from '@/lib/utils'
 
 const leftColumn = [0, 2] as const
 const rightColumn = [1, 3] as const
@@ -18,19 +20,16 @@ function CapabilityCard({
   const Icon = featureIconMap[item.icon] ?? Sparkles
 
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.5, delay: index * 0.07, ease: [0.16, 1, 0.3, 1] }}
-      className={`hp-cap-card group ${tall ? 'hp-cap-card--tall' : ''}`}
+    <GlowCard3D
+      index={index}
+      innerClassName={cn('hp-cap-card', tall && 'hp-cap-card--tall')}
     >
       <span className="hp-cap-card__icon">
         <Icon className="size-[1.125rem]" strokeWidth={2} aria-hidden />
       </span>
       <h3 className="hp-cap-card__title">{item.title}</h3>
       <p className="hp-cap-card__desc">{item.description}</p>
-    </motion.article>
+    </GlowCard3D>
   )
 }
 
@@ -44,7 +43,7 @@ export function FeaturesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-          className="hp-capabilities__header"
+          className="hp-capabilities__header hp-flow-in"
         >
           <span className="hp-eyebrow hp-eyebrow--glow">
             <span className="hp-eyebrow-dot" aria-hidden />

@@ -4,7 +4,7 @@ import { heroContent } from '@/data/home'
 import { Container } from '@/components/common/container'
 import { HeroBadge } from '@/components/home/hero-badge'
 import { HeroDashboard } from '@/components/home/hero-dashboard'
-import { AnimatedCounter } from '@/components/home/motion'
+import { AnimatedCounter, GlowCard3D } from '@/components/home/motion'
 import { CinematicBackground } from '@/components/home/motion/cinematic-background'
 
 const trustPills = [
@@ -77,13 +77,19 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 0.36 }}
               className="mt-8 grid grid-cols-3 gap-2.5 sm:max-w-sm"
             >
-              {heroStats.map((stat) => (
-                <div key={stat.label} className="hp-glass-panel rounded-xl !p-3">
+              {heroStats.map((stat, i) => (
+                <GlowCard3D
+                  key={stat.label}
+                  index={i}
+                  animateIn={false}
+                  innerClassName="rounded-xl !p-3"
+                  className="h-full"
+                >
                   <p className="hp-hero__stat-value">
                     <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                   </p>
                   <p className="hp-hero__stat-label">{stat.label}</p>
-                </div>
+                </GlowCard3D>
               ))}
             </motion.div>
           </div>

@@ -1,7 +1,6 @@
 import { ArrowRight } from 'lucide-react'
-import { motion } from 'framer-motion'
 import { Container } from '@/components/common/container'
-import { CinematicBackground } from '@/components/home/motion/cinematic-background'
+import { CinematicBackground, GlowCard3D } from '@/components/home/motion'
 import { homeCtaSection } from '@/data/home-page'
 
 export function HomeCtaSection() {
@@ -11,13 +10,7 @@ export function HomeCtaSection() {
     <section id="cta" className="relative overflow-hidden py-24 sm:py-32">
       <CinematicBackground variant="cta" />
       <Container className="relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="hp-cta-mega hp-glass-panel"
-        >
+        <GlowCard3D innerClassName="hp-cta-mega px-6 py-10 text-center sm:px-10 sm:py-14">
           <div
             className="hp-cta-mega__ring absolute top-1/2 left-1/2 size-[min(90vw,600px)] -translate-x-1/2 -translate-y-1/2"
             aria-hidden
@@ -28,7 +21,7 @@ export function HomeCtaSection() {
             aria-hidden
           />
 
-          <span className="hp-eyebrow hp-eyebrow--glow">
+          <span className="hp-eyebrow hp-eyebrow--glow relative inline-flex">
             <span className="hp-eyebrow-dot" aria-hidden />
             {homeCtaSection.eyebrow}
           </span>
@@ -48,7 +41,7 @@ export function HomeCtaSection() {
               <ArrowRight className="size-4" />
             </a>
           </div>
-        </motion.div>
+        </GlowCard3D>
       </Container>
     </section>
   )

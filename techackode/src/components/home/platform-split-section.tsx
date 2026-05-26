@@ -15,11 +15,11 @@ export function PlatformSplitSection() {
           </div>
 
           <motion.div
-            initial={{ opacity: 0, x: 24 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: 24, filter: 'blur(6px)' }}
+            whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
             viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-            className="hp-split-feature__copy"
+            transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+            className="hp-split-feature__copy hp-flow-in"
           >
             <p className="hp-split-feature__eyebrow">{platformSplitSection.eyebrow}</p>
             <h2 className="hp-split-feature__title">{platformSplitSection.title}</h2>

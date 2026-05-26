@@ -11,6 +11,7 @@ export function CinematicBackground({ variant = 'section', className }: Cinemati
     <div className={cn('hp-cinematic-bg', `hp-cinematic-bg--${variant}`, className)} aria-hidden>
       <div className="hp-cinematic-bg__grid" />
       <div className="hp-cinematic-bg__noise" />
+      <div className="hp-cinematic-bg__aurora" />
       <motion.div
         className="hp-blob hp-blob--violet"
         animate={{ x: [0, 40, -20, 0], y: [0, -30, 20, 0], scale: [1, 1.08, 0.95, 1] }}

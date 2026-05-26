@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Activity, Layers, Zap } from 'lucide-react'
+import { GlowCard3D } from '@/components/home/motion'
 
 const floatTransition = {
   duration: 5,
@@ -10,12 +11,16 @@ const floatTransition = {
 export function HeroDashboard() {
   return (
     <div className="hp-hero__stage mx-auto w-full max-w-xl pb-2 lg:max-w-none lg:pb-0">
-      <motion.div
-        initial={{ opacity: 0, y: 32 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-        className="hp-glass-panel hp-hero__dashboard !transform-none"
+      <GlowCard3D
+        animateIn={false}
+        innerClassName="hp-hero__dashboard !p-4 sm:!p-5"
+        className="relative z-10"
       >
+        <motion.div
+          initial={{ opacity: 0, y: 32 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+        >
         <div className="mb-4 flex items-center justify-between gap-3">
           <div className="flex gap-1.5">
             <span className="size-2.5 rounded-full bg-[#ff5f57]" />
@@ -47,7 +52,8 @@ export function HeroDashboard() {
             ))}
           </div>
         </div>
-      </motion.div>
+        </motion.div>
+      </GlowCard3D>
 
       <motion.div
         className="hp-hero__float-card -left-2 top-8 sm:-left-8"

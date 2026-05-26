@@ -1,9 +1,8 @@
-import { motion } from 'framer-motion'
 import { ArrowUpRight, Brain, Code2, GraduationCap, Megaphone, Shield, Store, type LucideIcon } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Container } from '@/components/common/container'
 import { divisionCards, divisionsSection } from '@/data/divisions'
-import { StaggerItem, StaggerReveal } from '@/components/home/motion'
+import { GlowCard3D, StaggerItem, StaggerReveal } from '@/components/home/motion'
 import { PremiumHeading, SectionShell } from '@/components/home/ui'
 
 const iconMap: Record<string, LucideIcon> = {
@@ -17,7 +16,7 @@ const iconMap: Record<string, LucideIcon> = {
 
 export function DivisionsStrip() {
   return (
-    <SectionShell id="divisions" bg="white" cinematic="none">
+    <SectionShell id="divisions" bg="white" cinematic="section">
       <Container className="py-24 sm:py-32">
         <PremiumHeading
           eyebrow="Ecosystem"
@@ -30,12 +29,12 @@ export function DivisionsStrip() {
             const Icon = iconMap[division.icon] ?? Code2
             return (
               <StaggerItem key={division.slug}>
-                <motion.div whileHover={{ y: -10, rotate: index % 2 === 0 ? -0.5 : 0.5 }}>
+                <GlowCard3D index={index} animateIn={false} innerClassName="h-full">
                   <Link
                     to={division.href}
-                    className="hp-glass-panel group relative block overflow-hidden p-7 transition-shadow hover:shadow-[var(--hp-shadow-glow)]"
+                    className="group relative block h-full p-7"
                   >
-                    <span className="hp-icon-box relative size-12 rounded-2xl">
+                    <span className="hp-icon-box relative size-12 rounded-2xl transition group-hover:scale-105">
                       <Icon className="size-5" strokeWidth={2} aria-hidden />
                     </span>
                     <h3 className="relative mt-5 text-lg font-bold text-[var(--hp-ink)]">
@@ -49,7 +48,7 @@ export function DivisionsStrip() {
                       <ArrowUpRight className="size-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                     </span>
                   </Link>
-                </motion.div>
+                </GlowCard3D>
               </StaggerItem>
             )
           })}

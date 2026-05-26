@@ -1,16 +1,16 @@
-import { motion } from 'framer-motion'
 import { Quote } from 'lucide-react'
 import { Autoplay, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Container } from '@/components/common/container'
 import { testimonialsSection } from '@/data/home-page'
+import { GlowCard3D } from '@/components/home/motion'
 import { PremiumHeading, SectionShell } from '@/components/home/ui'
 import 'swiper/css'
 import 'swiper/css/pagination'
 
 export function TestimonialsSection() {
   return (
-    <SectionShell id="testimonials" bg="white" cinematic="none">
+    <SectionShell id="testimonials" bg="mesh" cinematic="section">
       <Container className="py-24 sm:py-32">
         <PremiumHeading
           eyebrow={testimonialsSection.eyebrow}
@@ -34,20 +34,18 @@ export function TestimonialsSection() {
         >
           {testimonialsSection.items.map((item, index) => (
             <SwiperSlide key={item.name}>
-              <motion.article
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -8 }}
-                className="hp-glass-panel m-2 flex h-full min-h-[280px] flex-col p-8 sm:p-10"
+              <GlowCard3D
+                index={index}
+                animateIn={false}
+                innerClassName="m-2 flex min-h-[280px] flex-col p-8 sm:p-10"
+                className="h-full"
               >
                 <Quote className="size-10 text-[var(--hp-navy)] opacity-25" strokeWidth={1.5} aria-hidden />
                 <p className="mt-6 flex-1 text-lg leading-relaxed text-[var(--hp-ink)]">
                   &ldquo;{item.quote}&rdquo;
                 </p>
                 <div className="mt-8 flex items-center gap-4 border-t border-[var(--hp-border)] pt-6">
-                  <span className="flex size-12 items-center justify-center rounded-full bg-[var(--hp-navy)] text-sm font-bold text-white">
+                  <span className="flex size-12 items-center justify-center rounded-full bg-[var(--hp-navy)] text-sm font-bold text-white shadow-md">
                     {item.name.charAt(0)}
                   </span>
                   <div>
@@ -55,7 +53,7 @@ export function TestimonialsSection() {
                     <p className="text-sm text-[var(--hp-muted)]">{item.role}</p>
                   </div>
                 </div>
-              </motion.article>
+              </GlowCard3D>
             </SwiperSlide>
           ))}
         </Swiper>
