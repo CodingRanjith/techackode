@@ -1,9 +1,9 @@
-import { motion } from 'framer-motion'
+﻿import { motion } from 'framer-motion'
 import { ArrowRight, Play } from 'lucide-react'
 import { heroContent } from '@/data/home'
 import { Container } from '@/components/common/container'
 import { HeroBadge } from '@/components/home/hero-badge'
-import { HeroDashboard } from '@/components/home/hero-dashboard'
+import { HeroDashboard } from './hero-dashboard'
 import { AnimatedCounter, GlowCard3D } from '@/components/home/motion'
 import { CinematicBackground } from '@/components/home/motion/cinematic-background'
 

@@ -21,37 +21,41 @@ export function HeroDashboard() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         >
-        <div className="mb-4 flex items-center justify-between gap-3">
-          <div className="flex gap-1.5">
-            <span className="size-2.5 rounded-full bg-[#ff5f57]" />
-            <span className="size-2.5 rounded-full bg-[#febc2e]" />
-            <span className="size-2.5 rounded-full bg-[#28c840]" />
-          </div>
-          <span className="text-[10px] font-semibold tracking-wider text-[var(--hp-soft)] uppercase">
-            Platform overview
-          </span>
-        </div>
-        <div className="grid gap-3 sm:grid-cols-3">
-          {['Uptime', 'Projects', 'Velocity'].map((label, i) => (
-            <div key={label} className="rounded-xl bg-[var(--hp-bg-subtle)] p-3">
-              <p className="text-xs font-medium leading-snug text-[var(--hp-muted)]">{label}</p>
-              <p className="mt-1.5 text-lg font-bold leading-tight text-[var(--hp-navy)]">
-                {i === 0 ? '99.9%' : i === 1 ? '120+' : '+38%'}
-              </p>
+          <div className="mb-4 flex items-center justify-between gap-3">
+            <div className="flex gap-1.5" aria-hidden>
+              <span className="size-2.5 rounded-full bg-[#ff5f57]" />
+              <span className="size-2.5 rounded-full bg-[#febc2e]" />
+              <span className="size-2.5 rounded-full bg-[#28c840]" />
             </div>
-          ))}
-        </div>
-        <div className="mt-4 rounded-xl bg-[var(--hp-bg-subtle)] p-4">
-          <div className="mb-3 flex items-center justify-between">
-            <span className="text-sm font-semibold leading-snug text-[var(--hp-navy)]">Delivery analytics</span>
-            <span className="hp-mock-bar w-16" />
+            <span className="hp-label !normal-case !tracking-wide">
+              Platform overview
+            </span>
           </div>
-          <div className="hp-mock-chart">
-            {[1, 2, 3, 4, 5, 6].map((n) => (
-              <span key={n} style={{ height: `${35 + n * 10}%` }} />
+
+          <div className="grid gap-3 sm:grid-cols-3">
+            {['Uptime', 'Projects', 'Velocity'].map((label, i) => (
+              <div key={label} className="rounded-xl bg-[var(--hp-bg-subtle)] p-3">
+                <p className="text-xs font-medium leading-snug text-[var(--hp-muted)]">{label}</p>
+                <p className="mt-1.5 text-lg font-bold leading-tight text-[var(--hp-navy)]">
+                  {i === 0 ? '99.9%' : i === 1 ? '120+' : '+38%'}
+                </p>
+              </div>
             ))}
           </div>
-        </div>
+
+          <div className="mt-4 rounded-xl bg-[var(--hp-bg-subtle)] p-4">
+            <div className="mb-3 flex items-center justify-between">
+              <span className="text-sm font-semibold leading-snug text-[var(--hp-navy)]">
+                Delivery analytics
+              </span>
+              <span className="hp-mock-bar w-16" aria-hidden />
+            </div>
+            <div className="hp-mock-chart">
+              {[1, 2, 3, 4, 5, 6].map((n) => (
+                <span key={n} style={{ height: `${35 + n * 10}%` }} />
+              ))}
+            </div>
+          </div>
         </motion.div>
       </GlowCard3D>
 
