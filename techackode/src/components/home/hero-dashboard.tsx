@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Activity, Layers, Zap } from 'lucide-react'
+import { Activity, Layers, Sparkles, Zap } from 'lucide-react'
 import { GlowCard3D } from '@/components/home/motion'
 
 const floatTransition = {
@@ -9,6 +9,14 @@ const floatTransition = {
 }
 
 export function HeroDashboard() {
+  const lifecycleStages = ['Discover', 'Blueprint', 'Build', 'Launch', 'Operate'] as const
+  const telemetryCards = [
+    { label: 'Platform confidence', value: '94%', trend: '+4.1% this quarter' },
+    { label: 'Active engagements', value: '32', trend: '8 currently in delivery' },
+    { label: 'Automation routines', value: '118', trend: 'Across core workflows' },
+    { label: 'Knowledge signals', value: '2.7k', trend: 'Validated decision points' },
+  ] as const
+
   return (
     <div className="hp-hero__stage mx-auto w-full max-w-xl pb-2 lg:max-w-none lg:pb-0">
       <GlowCard3D
@@ -28,33 +36,49 @@ export function HeroDashboard() {
               <span className="size-2.5 rounded-full bg-[#28c840]" />
             </div>
             <span className="hp-label !normal-case !tracking-wide">
-              Platform overview
+              Delivery intelligence snapshot
             </span>
           </div>
 
-          <div className="grid gap-3 sm:grid-cols-3">
-            {['Uptime', 'Projects', 'Velocity'].map((label, i) => (
-              <div key={label} className="rounded-xl bg-[var(--hp-bg-subtle)] p-3">
-                <p className="text-xs font-medium leading-snug text-[var(--hp-muted)]">{label}</p>
-                <p className="mt-1.5 text-lg font-bold leading-tight text-[var(--hp-navy)]">
-                  {i === 0 ? '99.9%' : i === 1 ? '120+' : '+38%'}
+          <div className="hp-hero__lifecycle">
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--hp-soft)]">
+                  Lifecycle coverage
+                </p>
+                <p className="mt-1 text-sm font-semibold text-[var(--hp-ink)]">
+                  Coordinated execution across project phases
                 </p>
               </div>
-            ))}
-          </div>
-
-          <div className="mt-4 rounded-xl bg-[var(--hp-bg-subtle)] p-4">
-            <div className="mb-3 flex items-center justify-between">
-              <span className="text-sm font-semibold leading-snug text-[var(--hp-navy)]">
-                Delivery analytics
+              <span className="hp-icon-box size-9 rounded-xl">
+                <Sparkles className="size-4" strokeWidth={2} aria-hidden />
               </span>
-              <span className="hp-mock-bar w-16" aria-hidden />
             </div>
-            <div className="hp-mock-chart">
-              {[1, 2, 3, 4, 5, 6].map((n) => (
-                <span key={n} style={{ height: `${35 + n * 10}%` }} />
+
+            <div className="hp-hero__lifecycle-track mt-4">
+              <span className="hp-hero__lifecycle-line" aria-hidden />
+              {lifecycleStages.map((stage, index) => (
+                <div key={stage} className="hp-hero__lifecycle-step">
+                  <span
+                    className="hp-hero__lifecycle-dot"
+                    data-active={index === lifecycleStages.length - 1}
+                  />
+                  <p>{stage}</p>
+                </div>
               ))}
             </div>
+          </div>
+
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            {telemetryCards.map((card) => (
+              <div key={card.label} className="hp-hero__metric-card">
+                <p className="text-xs font-medium leading-snug text-[var(--hp-muted)]">{card.label}</p>
+                <p className="mt-1.5 text-lg font-bold leading-tight text-[var(--hp-navy)]">
+                  {card.value}
+                </p>
+                <p className="mt-1 text-xs leading-relaxed text-[var(--hp-soft)]">{card.trend}</p>
+              </div>
+            ))}
           </div>
         </motion.div>
       </GlowCard3D>

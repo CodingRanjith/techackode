@@ -1,5 +1,5 @@
-﻿import { motion } from 'framer-motion'
-import { ArrowRight, Play } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { ArrowRight, Eye, Play, Route, Target } from 'lucide-react'
 import { heroContent } from '@/data/home'
 import { Container } from '@/components/common/container'
 import { HeroBadge } from '@/components/home/hero-badge'
@@ -18,12 +18,32 @@ const trustPills = [
 
 const heroStats = [
   { value: 2025, label: 'Founded', suffix: '' },
-  { value: 6, label: 'Divisions', suffix: '+' },
-  { value: 98, label: 'Delivery score', suffix: '%' },
+  { value: 6, label: 'Domain pods', suffix: '+' },
+  { value: 97, label: 'Partner retention', suffix: '%' },
+] as const
+
+const valuePoints = [
+  {
+    title: 'Delivery visibility',
+    description: 'Clear view for teams.',
+    icon: Eye,
+  },
+  {
+    title: 'Cross-domain execution',
+    description: 'Engineering, security, AI in one flow.',
+    icon: Route,
+  },
+  {
+    title: 'Outcome-first operations',
+    description: 'Roadmaps aligned to outcomes.',
+    icon: Target,
+  },
 ] as const
 
 export function HeroSection() {
   const [ctaPrimary, ctaSecondary] = heroContent.ctas
+  const compactLead =
+    'From idea to execution, we deliver secure, intelligent systems that scale with your business.'
 
   return (
     <section id="hero" className="hp-hero">
@@ -40,26 +60,24 @@ export function HeroSection() {
               transition={{ duration: 0.9, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
               className="hp-hero__title mt-5"
             >
-              <span className="block text-[var(--hp-ink)]">Empowering the Future Through</span>
-              <span className="block text-[var(--hp-black)]">
-                Technology, Learning & Innovation
-              </span>
+              <span className="block text-[var(--hp-ink)]">Building Intelligent Systems</span>
+              <span className="block hp-gradient-text--accent">for Real Business Growth</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="hp-hero__lead mt-6"
+              className="hp-hero__lead mt-4"
             >
-              {heroContent.subheading}
+              {compactLead}
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.28 }}
-              className="mt-7 flex flex-wrap items-center gap-3"
+              className="mt-5 flex flex-wrap items-center gap-2.5"
             >
               <a href={ctaPrimary.href} className="hp-btn-primary">
                 {ctaPrimary.label}
@@ -75,7 +93,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.36 }}
-              className="mt-8 grid grid-cols-3 gap-2.5 sm:max-w-sm"
+              className="mt-6 grid grid-cols-3 gap-2 sm:max-w-md"
             >
               {heroStats.map((stat, i) => (
                 <GlowCard3D
@@ -92,9 +110,36 @@ export function HeroSection() {
                 </GlowCard3D>
               ))}
             </motion.div>
+
           </div>
 
-          <HeroDashboard />
+          <div>
+            <HeroDashboard />
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.44 }}
+              className="hp-hero__value-panel lg:mt-4"
+            >
+              <p className="hp-hero__value-panel-label">Operational principles</p>
+              <div className="hp-hero__value-grid">
+                {valuePoints.map((item) => {
+                  const Icon = item.icon
+                  return (
+                    <div key={item.title} className="hp-hero__value-item">
+                      <span className="hp-hero__value-icon">
+                        <Icon className="size-3.5" strokeWidth={2} aria-hidden />
+                      </span>
+                      <div>
+                        <h3>{item.title}</h3>
+                        <p>{item.description}</p>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            </motion.div>
+          </div>
         </div>
 
         <motion.div
@@ -103,13 +148,15 @@ export function HeroSection() {
           transition={{ delay: 0.6, duration: 0.8 }}
           className="hp-hero__trust"
         >
-          <p className="hp-hero__trust-label">Trusted ecosystem</p>
-          <div className="hp-hero__trust-logos">
-            {trustPills.map((pill) => (
-              <span key={pill} className="hp-hero__trust-pill">
-                {pill}
-              </span>
-            ))}
+          <p className="hp-hero__trust-label">Operating focus</p>
+          <div className="hp-hero__trust-marquee">
+            <div className="hp-hero__trust-logos">
+              {[...trustPills, ...trustPills].map((pill, index) => (
+                <span key={`${pill}-${index}`} className="hp-hero__trust-pill">
+                  {pill}
+                </span>
+              ))}
+            </div>
           </div>
         </motion.div>
       </Container>

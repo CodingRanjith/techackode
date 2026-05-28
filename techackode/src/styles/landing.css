@@ -398,7 +398,8 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  border: 1px solid var(--footer-divider);
+  border: none;
+  background: transparent;
   color: var(--footer-heading);
 }
 
@@ -478,7 +479,8 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  border: 1px solid var(--footer-divider);
+  border: none;
+  background: transparent;
   color: var(--footer-heading);
   transition:
     color 0.2s ease,
@@ -489,8 +491,8 @@
 
 .footer-social-btn:hover {
   color: var(--footer-shell);
-  border-color: var(--footer-shell);
-  background: rgba(41, 82, 112, 0.1);
+  border-color: transparent;
+  background: transparent;
   transform: translateY(-2px);
 }
 

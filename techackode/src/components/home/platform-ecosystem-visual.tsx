@@ -11,25 +11,30 @@ const iconMap = {
 
 export function PlatformEcosystemVisual() {
   return (
-    <GlowCard3D index={0} innerClassName="p-5 sm:p-6" className="mx-auto w-full max-w-md lg:max-w-none">
-      <div className="mb-4 flex items-center justify-between gap-3">
-        <div className="flex gap-1.5" aria-hidden>
-          <span className="size-2.5 rounded-full bg-[#ff5f57]" />
-          <span className="size-2.5 rounded-full bg-[#febc2e]" />
-          <span className="size-2.5 rounded-full bg-[#28c840]" />
+    <GlowCard3D
+      index={0}
+      innerClassName="hp-ecosystem-card p-5 sm:p-6"
+      className="mx-auto w-full max-w-md lg:max-w-none"
+    >
+      <div className="mb-5 flex items-center justify-between gap-3">
+        <div className="inline-flex items-center gap-2 rounded-full border border-[var(--hp-border)] bg-white px-3 py-1.5">
+          <span className="size-2 rounded-full bg-emerald-500" />
+          <span className="text-[11px] font-semibold uppercase tracking-[0.1em] text-[var(--hp-soft)]">
+            Modular architecture
+          </span>
         </div>
         <span className="hp-label !normal-case !tracking-wide">
-          Techackode delivery hub
+          Domain intelligence map
         </span>
       </div>
 
-      <ul className="space-y-3">
+      <ul className="hp-ecosystem-list">
         {platformSplitSection.pillars.map((pillar, i) => {
           const Icon = iconMap[pillar.icon]
           return (
             <li
               key={pillar.label}
-              className="flex items-center gap-3 rounded-xl border border-[var(--hp-border)] bg-[var(--hp-bg-subtle)] px-3.5 py-3 transition hover:border-[rgba(41,82,112,0.2)]"
+              className="hp-ecosystem-item"
               style={{ transform: `translateZ(${8 + i * 2}px)` }}
             >
               <span className="hp-icon-box size-10 shrink-0 rounded-lg">
@@ -39,7 +44,7 @@ export function PlatformEcosystemVisual() {
                 <p className="text-sm font-semibold leading-snug text-[var(--hp-ink)]">{pillar.label}</p>
                 <p className="mt-1 text-sm leading-relaxed text-[var(--hp-muted)]">{pillar.detail}</p>
               </div>
-              <span className="shrink-0 rounded-full border border-[var(--hp-border)] bg-white px-2.5 py-1 text-[10px] font-semibold text-[var(--hp-ink)]">
+              <span className="hp-ecosystem-status">
                 {pillar.status}
               </span>
             </li>
@@ -47,7 +52,7 @@ export function PlatformEcosystemVisual() {
         })}
       </ul>
 
-      <div className="mt-4 grid grid-cols-3 gap-2 rounded-xl border border-[var(--hp-border)] bg-[var(--hp-bg-subtle)] p-3">
+      <div className="mt-5 grid grid-cols-3 gap-2 rounded-xl border border-[var(--hp-border)] bg-[var(--hp-bg-subtle)] p-3">
         {platformSplitSection.metrics.map((metric) => (
           <div key={metric.label} className="text-center">
             <p className="text-base font-bold leading-none text-[var(--hp-ink)]">{metric.value}</p>

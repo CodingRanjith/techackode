@@ -1,4 +1,4 @@
-﻿import { Menu, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
@@ -6,6 +6,7 @@ import { navLinks } from '@/data/home'
 import { aboutNavItems } from '@/data/about'
 import { AboutDropdown } from '@/components/layout/about-dropdown'
 import { GlowButton } from '@/components/common/glow-button'
+import { BrandLogo } from '@/components/common/logo'
 import { cn } from '@/lib/utils'
 import { scrollToHash, scrollToTop } from '@/lib/scroll'
 
@@ -104,17 +105,10 @@ export function Navbar({ variant = 'default' }: NavbarProps) {
           onClick={() => scrollToTop()}
           className="group flex shrink-0 items-center gap-2.5"
         >
+          <BrandLogo variant="icon" className="w-8 sm:w-9" />
           <span
             className={cn(
-              'flex size-9 items-center justify-center rounded-full text-sm font-bold text-white',
-              isHome ? 'bg-[var(--hp-navy)]' : 'bg-[var(--ink)] text-[var(--cream)]',
-            )}
-          >
-            T
-          </span>
-          <span
-            className={cn(
-              'brand-wordmark text-lg',
+              'brand-wordmark text-[1.95rem] leading-none font-semibold tracking-[-0.02em] transition-opacity group-hover:opacity-90',
               isHome ? 'text-[var(--hp-navy)]' : 'text-[var(--ink)]',
             )}
           >
