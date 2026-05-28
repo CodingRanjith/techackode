@@ -7,6 +7,7 @@ type ServicesPageShellProps = {
   heading: string
   subheading?: string
   children: ReactNode
+  theme?: 'default' | 'home'
 }
 
 export function ServicesPageShell({
@@ -14,10 +15,11 @@ export function ServicesPageShell({
   heading,
   subheading,
   children,
+  theme = 'default',
 }: ServicesPageShellProps) {
   return (
-    <MainLayout>
-      <ServicesHero badge={badge} heading={heading} subheading={subheading} />
+    <MainLayout variant={theme === 'home' ? 'home' : 'default'}>
+      <ServicesHero badge={badge} heading={heading} subheading={subheading} theme={theme} />
       <div className="pb-24 sm:pb-32">{children}</div>
     </MainLayout>
   )

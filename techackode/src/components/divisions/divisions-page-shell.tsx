@@ -8,6 +8,7 @@ type DivisionsPageShellProps = {
   heading: string
   subheading?: string
   children: ReactNode
+  theme?: 'default' | 'home'
 }
 
 export function DivisionsPageShell({
@@ -15,11 +16,12 @@ export function DivisionsPageShell({
   heading,
   subheading,
   children,
+  theme = 'default',
 }: DivisionsPageShellProps) {
   return (
-    <MainLayout>
-      <DivisionsHero badge={badge} heading={heading} subheading={subheading} />
-      <DivisionsSubnav />
+    <MainLayout variant={theme === 'home' ? 'home' : 'default'}>
+      <DivisionsHero badge={badge} heading={heading} subheading={subheading} theme={theme} />
+      <DivisionsSubnav theme={theme} />
       <div className="pb-24 sm:pb-32">{children}</div>
     </MainLayout>
   )

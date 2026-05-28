@@ -5,8 +5,8 @@ export default function ClientsPage() {
   const { hero, content } = clientsPage
 
   return (
-    <AboutPageShell heading={hero.heading} subheading={hero.subheading}>
-      <ContentBlock content={content} />
+    <AboutPageShell heading={hero.heading} subheading={hero.subheading} theme="home">
+      <ContentBlock content={content} theme="home" />
     </AboutPageShell>
   )
 }

@@ -8,6 +8,7 @@ type AboutPageShellProps = {
   heading: string
   subheading?: string
   children: ReactNode
+  theme?: 'default' | 'home'
 }
 
 export function AboutPageShell({
@@ -15,11 +16,12 @@ export function AboutPageShell({
   heading,
   subheading,
   children,
+  theme = 'default',
 }: AboutPageShellProps) {
   return (
-    <MainLayout>
-      <AboutHero badge={badge} heading={heading} subheading={subheading} />
-      <AboutSubnav />
+    <MainLayout variant={theme === 'home' ? 'home' : 'default'}>
+      <AboutHero badge={badge} heading={heading} subheading={subheading} theme={theme} />
+      <AboutSubnav theme={theme} />
       <div className="pb-24 sm:pb-32">{children}</div>
     </MainLayout>
   )

@@ -7,6 +7,7 @@ type CareersPageShellProps = {
   heading: string
   subheading?: string
   children: ReactNode
+  theme?: 'default' | 'home'
 }
 
 export function CareersPageShell({
@@ -14,10 +15,11 @@ export function CareersPageShell({
   heading,
   subheading,
   children,
+  theme = 'default',
 }: CareersPageShellProps) {
   return (
-    <MainLayout>
-      <CareersHero badge={badge} heading={heading} subheading={subheading} />
+    <MainLayout variant={theme === 'home' ? 'home' : 'default'}>
+      <CareersHero badge={badge} heading={heading} subheading={subheading} theme={theme} />
       <div className="pb-24 sm:pb-32">{children}</div>
     </MainLayout>
   )

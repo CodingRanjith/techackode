@@ -1,4 +1,4 @@
-﻿import {
+import {
   ContactPageShell,
   ContactInfoSection,
   InquiryFormSection,
@@ -23,6 +23,7 @@ export default function ContactPage() {
       badge={hero.badge}
       heading={hero.heading}
       subheading={hero.subheading}
+      theme="home"
     >
       <ContactInfoSection
         eyebrow={contactInfo.eyebrow}

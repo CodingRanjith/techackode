@@ -7,6 +7,7 @@ type ContactPageShellProps = {
   heading: string
   subheading?: string
   children: ReactNode
+  theme?: 'default' | 'home'
 }
 
 export function ContactPageShell({
@@ -14,10 +15,11 @@ export function ContactPageShell({
   heading,
   subheading,
   children,
+  theme = 'default',
 }: ContactPageShellProps) {
   return (
-    <MainLayout>
-      <ContactHero badge={badge} heading={heading} subheading={subheading} />
+    <MainLayout variant={theme === 'home' ? 'home' : 'default'}>
+      <ContactHero badge={badge} heading={heading} subheading={subheading} theme={theme} />
       <div className="pb-24 sm:pb-32">{children}</div>
     </MainLayout>
   )

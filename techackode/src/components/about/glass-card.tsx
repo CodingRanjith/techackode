@@ -6,23 +6,40 @@ type GlassCardProps = {
   children: ReactNode
   className?: string
   icon?: ReactNode
+  theme?: 'default' | 'home'
 }
 
-export function GlassCard({ title, children, className, icon }: GlassCardProps) {
+export function GlassCard({ title, children, className, icon, theme = 'default' }: GlassCardProps) {
   return (
     <article
       className={cn(
-        'landing-card flex h-full flex-col p-8 sm:p-10',
+        theme === 'home'
+          ? 'hp-glow-card flex h-full flex-col p-8 sm:p-10'
+          : 'landing-card flex h-full flex-col p-8 sm:p-10',
         className,
       )}
     >
       {icon && (
-        <div className="mb-5 flex size-12 items-center justify-center rounded-2xl bg-[var(--accent-soft)] text-[var(--ink)]">
+        <div
+          className={cn(
+            'mb-5 flex size-12 items-center justify-center rounded-2xl',
+            theme === 'home'
+              ? 'bg-[var(--hp-accent-soft)] text-[var(--hp-ink)]'
+              : 'bg-[var(--accent-soft)] text-[var(--ink)]',
+          )}
+        >
           {icon}
         </div>
       )}
-      <h3 className="text-display-sm text-xl sm:text-2xl">{title}</h3>
-      <div className="mt-4 flex-1 text-sm leading-relaxed landing-muted sm:text-base">
+      <h3 className={cn('text-xl sm:text-2xl', theme === 'home' ? 'hp-h-card' : 'text-display-sm')}>
+        {title}
+      </h3>
+      <div
+        className={cn(
+          'mt-4 flex-1 text-sm leading-relaxed sm:text-base',
+          theme === 'home' ? 'hp-body' : 'landing-muted',
+        )}
+      >
         {children}
       </div>
     </article>

@@ -8,6 +8,7 @@ type ShowcasePageShellProps = {
   heading: string
   subheading?: string
   children: ReactNode
+  theme?: 'default' | 'home'
 }
 
 export function ShowcasePageShell({
@@ -15,11 +16,12 @@ export function ShowcasePageShell({
   heading,
   subheading,
   children,
+  theme = 'default',
 }: ShowcasePageShellProps) {
   return (
-    <MainLayout>
-      <ShowcaseHero badge={badge} heading={heading} subheading={subheading} />
-      <ShowcaseSubnav />
+    <MainLayout variant={theme === 'home' ? 'home' : 'default'}>
+      <ShowcaseHero badge={badge} heading={heading} subheading={subheading} theme={theme} />
+      <ShowcaseSubnav theme={theme} />
       <div className="pb-24 sm:pb-32">{children}</div>
     </MainLayout>
   )
