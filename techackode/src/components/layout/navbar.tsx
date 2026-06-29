@@ -1,4 +1,4 @@
-import { Menu, X } from 'lucide-react'
+import { Menu, UserPlus, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
@@ -9,6 +9,7 @@ import { GlowButton } from '@/components/common/glow-button'
 import { BrandLogo } from '@/components/common/logo'
 import { cn } from '@/lib/utils'
 import { scrollToHash, scrollToTop } from '@/lib/scroll'
+import { useEnrollmentStore } from '@/stores/use-enrollment-store'
 
 function NavAnchor({
   href,
@@ -68,10 +69,12 @@ function NavAnchor({
 
 type NavbarProps = {
   variant?: 'default' | 'home'
+  showClassEnrollment?: boolean
 }
 
-export function Navbar({ variant = 'default' }: NavbarProps) {
+export function Navbar({ variant = 'default', showClassEnrollment = false }: NavbarProps) {
   const isHome = variant === 'home'
+  const openEnrollment = useEnrollmentStore((s) => s.open)
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   useEffect(() => {
@@ -85,7 +88,8 @@ export function Navbar({ variant = 'default' }: NavbarProps) {
   return (
     <header
       className={cn(
-        'fixed inset-x-0 top-0 z-50 transition-all duration-300',
+        'fixed inset-x-0 z-50 transition-all duration-300',
+        showClassEnrollment ? 'hp-nav-with-announcement' : 'top-0',
         scrolled
           ? isHome
             ? 'py-3'
@@ -95,7 +99,7 @@ export function Navbar({ variant = 'default' }: NavbarProps) {
     >
       <div
         className={cn(
-          'mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 sm:px-8',
+          'flex w-full items-center justify-between gap-4 px-4 sm:px-5 lg:px-6 xl:px-8',
           isHome && scrolled && 'hp-nav-glass rounded-2xl py-3',
           isHome && !scrolled && 'pt-1',
         )}
@@ -126,7 +130,17 @@ export function Navbar({ variant = 'default' }: NavbarProps) {
           )}
         </nav>
 
-        <div className="hidden sm:block">
+        <div className="hidden items-center gap-2 sm:flex">
+          {isHome && showClassEnrollment && (
+            <button
+              type="button"
+              onClick={() => openEnrollment()}
+              className="hp-btn-register"
+            >
+              <UserPlus className="size-4" />
+              Register
+            </button>
+          )}
           {isHome ? (
             <Link to="/contact" onClick={() => scrollToTop()} className="hp-btn-primary !py-2.5 !text-sm">
               Contact Us
@@ -166,7 +180,7 @@ export function Navbar({ variant = 'default' }: NavbarProps) {
                 : 'border-[var(--border-soft)] bg-[var(--surface-elevated)]/98',
             )}
           >
-            <nav className="flex flex-col gap-1 px-5 py-4">
+            <nav className="flex flex-col gap-1 px-4 py-4 sm:px-5 lg:px-6 xl:px-8">
               {navLinks.map((link) =>
                 link.label === 'About Us' ? (
                   <div key={link.href} className="space-y-1">
@@ -217,6 +231,19 @@ export function Navbar({ variant = 'default' }: NavbarProps) {
               >
                 Contact Us
               </GlowButton>
+              {isHome && showClassEnrollment && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    openEnrollment()
+                    setOpen(false)
+                  }}
+                  className="hp-btn-primary mt-2 w-full justify-center"
+                >
+                  <UserPlus className="size-4" />
+                  Register Free
+                </button>
+              )}
             </nav>
           </motion.div>
         )}

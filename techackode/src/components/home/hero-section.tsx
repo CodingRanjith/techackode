@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Eye, Play, Route, Target } from 'lucide-react'
+import { ArrowRight, Eye, Play, Route, Target, UserPlus } from 'lucide-react'
 import { heroContent } from '@/data/home'
 import { Container } from '@/components/common/container'
 import { HeroBadge } from '@/components/home/hero-badge'
 import { HeroDashboard } from './hero-dashboard'
 import { AnimatedCounter, GlowCard3D } from '@/components/home/motion'
 import { CinematicBackground } from '@/components/home/motion/cinematic-background'
+import { useEnrollmentStore } from '@/stores/use-enrollment-store'
 
 const trustPills = [
   'Edutech',
@@ -42,6 +43,7 @@ const valuePoints = [
 
 export function HeroSection() {
   const [ctaPrimary, ctaSecondary] = heroContent.ctas
+  const openEnrollment = useEnrollmentStore((s) => s.open)
   const compactLead =
     'From idea to execution, we deliver secure, intelligent systems that scale with your business.'
 
@@ -87,6 +89,10 @@ export function HeroSection() {
                 <Play className="size-4 fill-current" />
                 {ctaSecondary.label}
               </a>
+              <button type="button" onClick={() => openEnrollment()} className="hp-btn-register">
+                <UserPlus className="size-4" />
+                Register Free
+              </button>
             </motion.div>
 
             <motion.div

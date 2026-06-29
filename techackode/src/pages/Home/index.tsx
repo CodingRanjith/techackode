@@ -1,5 +1,6 @@
 ﻿import {
   HeroSection,
+  ClassPromoSection,
   FeaturesSection,
   PlatformSplitSection,
   DivisionsStrip,
@@ -14,8 +15,9 @@ import { MainLayout } from '@/layouts/main-layout'
 
 export default function HomePage() {
   return (
-    <MainLayout variant="home">
+    <MainLayout variant="home" showClassEnrollment>
       <HeroSection />
+      <ClassPromoSection />
       <FeaturesSection />
       <PlatformSplitSection />
       <DivisionsStrip />

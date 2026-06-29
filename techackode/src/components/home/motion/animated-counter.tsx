@@ -6,9 +6,16 @@ type AnimatedCounterProps = {
   suffix?: string
   prefix?: string
   className?: string
+  format?: boolean
 }
 
-export function AnimatedCounter({ value, suffix = '', prefix = '', className }: AnimatedCounterProps) {
+export function AnimatedCounter({
+  value,
+  suffix = '',
+  prefix = '',
+  className,
+  format = false,
+}: AnimatedCounterProps) {
   const ref = useRef<HTMLSpanElement>(null)
   const inView = useInView(ref, { once: true, margin: '-40px' })
   const [display, setDisplay] = useState(0)
@@ -26,10 +33,12 @@ export function AnimatedCounter({ value, suffix = '', prefix = '', className }: 
     requestAnimationFrame(tick)
   }, [inView, value])
 
+  const formatted = format ? display.toLocaleString('en-IN') : display
+
   return (
     <span ref={ref} className={className}>
       {prefix}
-      {display}
+      {formatted}
       {suffix}
     </span>
   )
